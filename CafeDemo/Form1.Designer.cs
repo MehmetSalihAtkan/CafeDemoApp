@@ -76,17 +76,10 @@ namespace CafeDemo
             this.ımageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth32Bit;
             this.ımageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("ımageList1.ImageStream")));
             this.ımageList1.TransparentColor = System.Drawing.Color.Transparent;
-            this.ımageList1.Images.SetKeyName(0, "Button-Delete-icon (1).ico");
-            this.ımageList1.Images.SetKeyName(1, "110000045311153.jpg");
-            this.ımageList1.Images.SetKeyName(2, "215617.png");
-            this.ımageList1.Images.SetKeyName(3, "Settings.ico");
-            this.ımageList1.Images.SetKeyName(4, "unnamed.png");
-            this.ımageList1.Images.SetKeyName(5, "masa.png");
-            this.ımageList1.Images.SetKeyName(6, "kapat.png");
-            this.ımageList1.Images.SetKeyName(7, "yeni1.png");
-            this.ımageList1.Images.SetKeyName(8, "rapor 2.png");
-            this.ımageList1.Images.SetKeyName(9, "asdasd.jpg");
-            this.ımageList1.Images.SetKeyName(10, "sdfssf.png");
+            this.ımageList1.Images.SetKeyName(0, "110000045311153.jpg");
+            this.ımageList1.Images.SetKeyName(1, "yeni1.png");
+            this.ımageList1.Images.SetKeyName(2, "asdasd.jpg");
+            this.ımageList1.Images.SetKeyName(3, "sdfssf.png");
             // 
             // btnRaporlar
             // 
