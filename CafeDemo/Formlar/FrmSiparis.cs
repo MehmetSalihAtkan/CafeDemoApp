@@ -8,6 +8,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CafeDemoLib.Sınıflar;
+using System;
+using System.Collections.Generic;
 
 namespace CafeOtomasyonuApp.Formlar
 {
@@ -21,11 +24,12 @@ namespace CafeOtomasyonuApp.Formlar
         private void FrmSiparis_Load(object sender, EventArgs e)
         {
             // kategori olusturma
-            int masaSayisi = 100; // Masaların sayısı buradan alınacak
+            //int masaSayisi = 100; // Masaların sayısı buradan alınacak
             int kategoriPanelWidth = flwLytPnlKategori.Width - 30;
             int kategoriPanelHeight = 100;
 
-            for (int i = 1; i <= masaSayisi; i++)
+            int MasaNo = this.MdiParent.Controls.Count;
+            for (int i = 1; i <= MasaNo; i++)
             {
                 Button btnKategori = new Button();
                 btnKategori.Name = "btnKategori" + i;
@@ -37,6 +41,7 @@ namespace CafeOtomasyonuApp.Formlar
             // fis olusturma
 
         }
+
 
         public void BtnKategori_Click(object sender, EventArgs e)
         {

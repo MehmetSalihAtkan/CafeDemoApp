@@ -62,7 +62,7 @@
             this.flwLytPnlMasa.Size = new System.Drawing.Size(746, 349);
             this.flwLytPnlMasa.TabIndex = 0;
             // 
-            // FrmMasaSecme
+            // FrmMasalar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
