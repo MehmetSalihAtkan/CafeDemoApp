@@ -30,6 +30,7 @@ namespace CafeDemo.Formlar
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAyarlar));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
@@ -41,6 +42,7 @@ namespace CafeDemo.Formlar
             this.txtUrunAdi = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.ımageList1 = new System.Windows.Forms.ImageList(this.components);
             this.button2 = new System.Windows.Forms.Button();
             this.btnUrunResim = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
@@ -115,11 +117,12 @@ namespace CafeDemo.Formlar
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(992, 489);
+            this.tabControl1.Size = new System.Drawing.Size(992, 535);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage1
             // 
+            this.tabPage1.BackColor = System.Drawing.Color.Beige;
             this.tabPage1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.tabPage1.Controls.Add(this.numericUpDown1);
             this.tabPage1.Controls.Add(this.label6);
@@ -138,10 +141,9 @@ namespace CafeDemo.Formlar
             this.tabPage1.Location = new System.Drawing.Point(4, 46);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(5);
-            this.tabPage1.Size = new System.Drawing.Size(984, 439);
+            this.tabPage1.Size = new System.Drawing.Size(984, 485);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "     Ürün Ekle    ";
-            this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // numericUpDown1
             // 
@@ -215,40 +217,73 @@ namespace CafeDemo.Formlar
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(318, 411);
+            this.button1.BackColor = System.Drawing.Color.White;
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.ImageKey = "güncelle.png";
+            this.button1.ImageList = this.ımageList1;
+            this.button1.Location = new System.Drawing.Point(318, 396);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(160, 52);
+            this.button1.Size = new System.Drawing.Size(185, 67);
             this.button1.TabIndex = 8;
             this.button1.Text = "Güncelle";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button1.UseVisualStyleBackColor = false;
+            // 
+            // ımageList1
+            // 
+            this.ımageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth32Bit;
+            this.ımageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("ımageList1.ImageStream")));
+            this.ımageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.ımageList1.Images.SetKeyName(0, "resimsec.png");
+            this.ımageList1.Images.SetKeyName(1, "ekle.png");
+            this.ımageList1.Images.SetKeyName(2, "ghfgh.png");
+            this.ımageList1.Images.SetKeyName(3, "gfnfgn.jpg");
+            this.ımageList1.Images.SetKeyName(4, "güncelle.png");
+            this.ımageList1.Images.SetKeyName(5, "resimsec.png");
+            this.ımageList1.Images.SetKeyName(6, "xcvxc.jpg");
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(168, 411);
+            this.button2.BackColor = System.Drawing.Color.White;
+            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button2.ImageKey = "ghfgh.png";
+            this.button2.ImageList = this.ımageList1;
+            this.button2.Location = new System.Drawing.Point(168, 396);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(131, 52);
+            this.button2.Size = new System.Drawing.Size(102, 67);
             this.button2.TabIndex = 9;
             this.button2.Text = "Sil";
-            this.button2.UseVisualStyleBackColor = true;
+            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button2.UseVisualStyleBackColor = false;
             // 
             // btnUrunResim
             // 
-            this.btnUrunResim.Location = new System.Drawing.Point(8, 197);
+            this.btnUrunResim.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnUrunResim.ForeColor = System.Drawing.Color.Black;
+            this.btnUrunResim.ImageKey = "resimsec.png";
+            this.btnUrunResim.ImageList = this.ımageList1;
+            this.btnUrunResim.Location = new System.Drawing.Point(19, 230);
             this.btnUrunResim.Name = "btnUrunResim";
-            this.btnUrunResim.Size = new System.Drawing.Size(176, 52);
+            this.btnUrunResim.Size = new System.Drawing.Size(170, 69);
             this.btnUrunResim.TabIndex = 10;
-            this.btnUrunResim.Text = "Resim Seç";
-            this.btnUrunResim.UseVisualStyleBackColor = true;
+            this.btnUrunResim.Text = "RESİM";
+            this.btnUrunResim.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnUrunResim.UseVisualStyleBackColor = false;
             this.btnUrunResim.Click += new System.EventHandler(this.btnUrunResim_Click);
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(19, 411);
+            this.button3.BackColor = System.Drawing.Color.White;
+            this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button3.ImageKey = "gfnfgn.jpg";
+            this.button3.ImageList = this.ımageList1;
+            this.button3.Location = new System.Drawing.Point(19, 396);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(131, 52);
+            this.button3.Size = new System.Drawing.Size(125, 67);
             this.button3.TabIndex = 10;
             this.button3.Text = "Ekle";
-            this.button3.UseVisualStyleBackColor = true;
+            this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button3.UseVisualStyleBackColor = false;
             // 
             // listUrun
             // 
@@ -299,7 +334,7 @@ namespace CafeDemo.Formlar
             this.btnResim.Location = new System.Drawing.Point(4, 46);
             this.btnResim.Name = "btnResim";
             this.btnResim.Padding = new System.Windows.Forms.Padding(3);
-            this.btnResim.Size = new System.Drawing.Size(984, 439);
+            this.btnResim.Size = new System.Drawing.Size(984, 485);
             this.btnResim.TabIndex = 1;
             this.btnResim.Text = "    Kategori Ekle    ";
             this.btnResim.UseVisualStyleBackColor = true;
@@ -342,40 +377,60 @@ namespace CafeDemo.Formlar
             // 
             // btnGuncelle
             // 
+            this.btnGuncelle.BackColor = System.Drawing.Color.White;
+            this.btnGuncelle.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnGuncelle.ImageKey = "güncelle.png";
+            this.btnGuncelle.ImageList = this.ımageList1;
             this.btnGuncelle.Location = new System.Drawing.Point(307, 352);
             this.btnGuncelle.Name = "btnGuncelle";
-            this.btnGuncelle.Size = new System.Drawing.Size(148, 52);
+            this.btnGuncelle.Size = new System.Drawing.Size(184, 73);
             this.btnGuncelle.TabIndex = 2;
             this.btnGuncelle.Text = "Güncelle";
-            this.btnGuncelle.UseVisualStyleBackColor = true;
+            this.btnGuncelle.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnGuncelle.UseVisualStyleBackColor = false;
             // 
             // btnSil
             // 
-            this.btnSil.Location = new System.Drawing.Point(157, 352);
+            this.btnSil.BackColor = System.Drawing.Color.White;
+            this.btnSil.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSil.ImageKey = "ghfgh.png";
+            this.btnSil.ImageList = this.ımageList1;
+            this.btnSil.Location = new System.Drawing.Point(167, 352);
             this.btnSil.Name = "btnSil";
-            this.btnSil.Size = new System.Drawing.Size(131, 52);
+            this.btnSil.Size = new System.Drawing.Size(109, 73);
             this.btnSil.TabIndex = 2;
             this.btnSil.Text = "Sil";
-            this.btnSil.UseVisualStyleBackColor = true;
+            this.btnSil.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnSil.UseVisualStyleBackColor = false;
             // 
             // btnKategoriResim
             // 
-            this.btnKategoriResim.Location = new System.Drawing.Point(8, 138);
+            this.btnKategoriResim.BackColor = System.Drawing.Color.White;
+            this.btnKategoriResim.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnKategoriResim.ImageKey = "resimsec.png";
+            this.btnKategoriResim.ImageList = this.ımageList1;
+            this.btnKategoriResim.Location = new System.Drawing.Point(20, 174);
             this.btnKategoriResim.Name = "btnKategoriResim";
-            this.btnKategoriResim.Size = new System.Drawing.Size(180, 52);
+            this.btnKategoriResim.Size = new System.Drawing.Size(153, 69);
             this.btnKategoriResim.TabIndex = 2;
-            this.btnKategoriResim.Text = "Resim Seç";
-            this.btnKategoriResim.UseVisualStyleBackColor = true;
+            this.btnKategoriResim.Text = "Resim";
+            this.btnKategoriResim.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnKategoriResim.UseVisualStyleBackColor = false;
             this.btnKategoriResim.Click += new System.EventHandler(this.btnKategoriResim_Click);
             // 
             // btnEkle
             // 
+            this.btnEkle.BackColor = System.Drawing.Color.White;
+            this.btnEkle.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEkle.ImageKey = "gfnfgn.jpg";
+            this.btnEkle.ImageList = this.ımageList1;
             this.btnEkle.Location = new System.Drawing.Point(8, 352);
             this.btnEkle.Name = "btnEkle";
-            this.btnEkle.Size = new System.Drawing.Size(131, 52);
+            this.btnEkle.Size = new System.Drawing.Size(131, 73);
             this.btnEkle.TabIndex = 2;
             this.btnEkle.Text = "Ekle";
-            this.btnEkle.UseVisualStyleBackColor = true;
+            this.btnEkle.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnEkle.UseVisualStyleBackColor = false;
             // 
             // listKategori
             // 
@@ -407,7 +462,7 @@ namespace CafeDemo.Formlar
             this.tabPage3.Location = new System.Drawing.Point(4, 46);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(984, 439);
+            this.tabPage3.Size = new System.Drawing.Size(984, 485);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "    Restoran Bilgileri    ";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -429,19 +484,24 @@ namespace CafeDemo.Formlar
             this.btnKaydetDuzen.Controls.Add(this.checkBox1);
             this.btnKaydetDuzen.Location = new System.Drawing.Point(591, 18);
             this.btnKaydetDuzen.Name = "btnKaydetDuzen";
-            this.btnKaydetDuzen.Size = new System.Drawing.Size(607, 340);
+            this.btnKaydetDuzen.Size = new System.Drawing.Size(607, 387);
             this.btnKaydetDuzen.TabIndex = 7;
             this.btnKaydetDuzen.TabStop = false;
             this.btnKaydetDuzen.Text = "Restoran Düzeni";
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(266, 275);
+            this.button4.BackColor = System.Drawing.Color.White;
+            this.button4.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.button4.ImageKey = "xcvxc.jpg";
+            this.button4.ImageList = this.ımageList1;
+            this.button4.Location = new System.Drawing.Point(240, 277);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(137, 48);
+            this.button4.Size = new System.Drawing.Size(108, 98);
             this.button4.TabIndex = 6;
             this.button4.Text = "Kaydet";
-            this.button4.UseVisualStyleBackColor = true;
+            this.button4.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button4.UseVisualStyleBackColor = false;
             // 
             // numericUpDown7
             // 
@@ -569,12 +629,17 @@ namespace CafeDemo.Formlar
             // 
             // btnKaydetIletisim
             // 
-            this.btnKaydetIletisim.Location = new System.Drawing.Point(45, 275);
+            this.btnKaydetIletisim.BackColor = System.Drawing.Color.White;
+            this.btnKaydetIletisim.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnKaydetIletisim.ImageKey = "xcvxc.jpg";
+            this.btnKaydetIletisim.ImageList = this.ımageList1;
+            this.btnKaydetIletisim.Location = new System.Drawing.Point(45, 232);
             this.btnKaydetIletisim.Name = "btnKaydetIletisim";
-            this.btnKaydetIletisim.Size = new System.Drawing.Size(137, 48);
+            this.btnKaydetIletisim.Size = new System.Drawing.Size(107, 102);
             this.btnKaydetIletisim.TabIndex = 6;
             this.btnKaydetIletisim.Text = "Kaydet";
-            this.btnKaydetIletisim.UseVisualStyleBackColor = true;
+            this.btnKaydetIletisim.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnKaydetIletisim.UseVisualStyleBackColor = false;
             // 
             // label3
             // 
@@ -638,7 +703,7 @@ namespace CafeDemo.Formlar
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(992, 489);
+            this.ClientSize = new System.Drawing.Size(992, 535);
             this.ControlBox = false;
             this.Controls.Add(this.tabControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
@@ -730,5 +795,6 @@ namespace CafeDemo.Formlar
         private System.Windows.Forms.NumericUpDown numericUpDown5;
         private System.Windows.Forms.CheckBox checkBox6;
         private System.Drawing.Printing.PrintDocument printDocument1;
+        private System.Windows.Forms.ImageList ımageList1;
     }
 }
