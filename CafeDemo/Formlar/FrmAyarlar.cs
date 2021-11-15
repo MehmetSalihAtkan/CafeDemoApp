@@ -17,7 +17,36 @@ namespace CafeDemo.Formlar
             InitializeComponent();
         }
 
-    
-  
+        private void btnUrunResim_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog dialog = new OpenFileDialog();
+            dialog.Multiselect = false;
+            dialog.Title = "Bir fotoğraf seçiniz";
+            dialog.Filter = "Resim Dosyaları | *.jpeg; *.jpg";
+            dialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+
+            DialogResult result = dialog.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                pbUrun.ImageLocation = dialog.FileName;
+                pbUrun.SizeMode = PictureBoxSizeMode.StretchImage;
+            }
+
+        }
+
+        private void btnKategoriResim_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog dialog = new OpenFileDialog();
+            dialog.Multiselect = false;
+            dialog.Title = "Bir fotoğraf seçiniz";
+            dialog.Filter = "Resim Dosyaları | *.jpeg; *.jpg";
+            dialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+
+            DialogResult result = dialog.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                pbKategori.ImageLocation = dialog.FileName;
+            }
+        }
     }
 }

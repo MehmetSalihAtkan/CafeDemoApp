@@ -44,13 +44,13 @@ namespace CafeDemo.Formlar
             this.button2 = new System.Windows.Forms.Button();
             this.btnUrunResim = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.listView2 = new System.Windows.Forms.ListView();
+            this.listUrun = new System.Windows.Forms.ListView();
             this.clmnUrunAdi = new System.Windows.Forms.ColumnHeader();
             this.clmnKategorisi = new System.Windows.Forms.ColumnHeader();
             this.clmnFiyati = new System.Windows.Forms.ColumnHeader();
             this.clmnAktifMi = new System.Windows.Forms.ColumnHeader();
             this.btnResim = new System.Windows.Forms.TabPage();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pbKategori = new System.Windows.Forms.PictureBox();
             this.cbKategoriAktifMi = new System.Windows.Forms.CheckBox();
             this.txtKategoriAdi = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -58,7 +58,7 @@ namespace CafeDemo.Formlar
             this.btnSil = new System.Windows.Forms.Button();
             this.btnKategoriResim = new System.Windows.Forms.Button();
             this.btnEkle = new System.Windows.Forms.Button();
-            this.listView1 = new System.Windows.Forms.ListView();
+            this.listKategori = new System.Windows.Forms.ListView();
             this.KategoriAdi = new System.Windows.Forms.ColumnHeader();
             this.AktifMi = new System.Windows.Forms.ColumnHeader();
             this.tabPage3 = new System.Windows.Forms.TabPage();
@@ -92,7 +92,7 @@ namespace CafeDemo.Formlar
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbUrun)).BeginInit();
             this.btnResim.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbKategori)).BeginInit();
             this.tabPage3.SuspendLayout();
             this.btnKaydetDuzen.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown7)).BeginInit();
@@ -133,7 +133,7 @@ namespace CafeDemo.Formlar
             this.tabPage1.Controls.Add(this.button2);
             this.tabPage1.Controls.Add(this.btnUrunResim);
             this.tabPage1.Controls.Add(this.button3);
-            this.tabPage1.Controls.Add(this.listView2);
+            this.tabPage1.Controls.Add(this.listUrun);
             this.tabPage1.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tabPage1.Location = new System.Drawing.Point(4, 46);
             this.tabPage1.Name = "tabPage1";
@@ -178,9 +178,12 @@ namespace CafeDemo.Formlar
             // 
             // pbUrun
             // 
+            this.pbUrun.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pbUrun.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pbUrun.Location = new System.Drawing.Point(209, 197);
             this.pbUrun.Name = "pbUrun";
             this.pbUrun.Size = new System.Drawing.Size(229, 151);
+            this.pbUrun.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbUrun.TabIndex = 14;
             this.pbUrun.TabStop = false;
             // 
@@ -236,6 +239,7 @@ namespace CafeDemo.Formlar
             this.btnUrunResim.TabIndex = 10;
             this.btnUrunResim.Text = "Resim Seç";
             this.btnUrunResim.UseVisualStyleBackColor = true;
+            this.btnUrunResim.Click += new System.EventHandler(this.btnUrunResim_Click);
             // 
             // button3
             // 
@@ -246,20 +250,20 @@ namespace CafeDemo.Formlar
             this.button3.Text = "Ekle";
             this.button3.UseVisualStyleBackColor = true;
             // 
-            // listView2
+            // listUrun
             // 
-            this.listView2.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.listUrun.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.clmnUrunAdi,
             this.clmnKategorisi,
             this.clmnFiyati,
             this.clmnAktifMi});
-            this.listView2.HideSelection = false;
-            this.listView2.Location = new System.Drawing.Point(463, 30);
-            this.listView2.Name = "listView2";
-            this.listView2.Size = new System.Drawing.Size(513, 299);
-            this.listView2.TabIndex = 0;
-            this.listView2.UseCompatibleStateImageBehavior = false;
-            this.listView2.View = System.Windows.Forms.View.Details;
+            this.listUrun.HideSelection = false;
+            this.listUrun.Location = new System.Drawing.Point(463, 30);
+            this.listUrun.Name = "listUrun";
+            this.listUrun.Size = new System.Drawing.Size(513, 299);
+            this.listUrun.TabIndex = 0;
+            this.listUrun.UseCompatibleStateImageBehavior = false;
+            this.listUrun.View = System.Windows.Forms.View.Details;
             // 
             // clmnUrunAdi
             // 
@@ -283,7 +287,7 @@ namespace CafeDemo.Formlar
             // 
             // btnResim
             // 
-            this.btnResim.Controls.Add(this.pictureBox1);
+            this.btnResim.Controls.Add(this.pbKategori);
             this.btnResim.Controls.Add(this.cbKategoriAktifMi);
             this.btnResim.Controls.Add(this.txtKategoriAdi);
             this.btnResim.Controls.Add(this.label1);
@@ -291,7 +295,7 @@ namespace CafeDemo.Formlar
             this.btnResim.Controls.Add(this.btnSil);
             this.btnResim.Controls.Add(this.btnKategoriResim);
             this.btnResim.Controls.Add(this.btnEkle);
-            this.btnResim.Controls.Add(this.listView1);
+            this.btnResim.Controls.Add(this.listKategori);
             this.btnResim.Location = new System.Drawing.Point(4, 46);
             this.btnResim.Name = "btnResim";
             this.btnResim.Padding = new System.Windows.Forms.Padding(3);
@@ -300,13 +304,15 @@ namespace CafeDemo.Formlar
             this.btnResim.Text = "    Kategori Ekle    ";
             this.btnResim.UseVisualStyleBackColor = true;
             // 
-            // pictureBox1
+            // pbKategori
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(209, 138);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(229, 151);
-            this.pictureBox1.TabIndex = 6;
-            this.pictureBox1.TabStop = false;
+            this.pbKategori.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pbKategori.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pbKategori.Location = new System.Drawing.Point(209, 138);
+            this.pbKategori.Name = "pbKategori";
+            this.pbKategori.Size = new System.Drawing.Size(229, 151);
+            this.pbKategori.TabIndex = 6;
+            this.pbKategori.TabStop = false;
             // 
             // cbKategoriAktifMi
             // 
@@ -360,6 +366,7 @@ namespace CafeDemo.Formlar
             this.btnKategoriResim.TabIndex = 2;
             this.btnKategoriResim.Text = "Resim Seç";
             this.btnKategoriResim.UseVisualStyleBackColor = true;
+            this.btnKategoriResim.Click += new System.EventHandler(this.btnKategoriResim_Click);
             // 
             // btnEkle
             // 
@@ -370,18 +377,18 @@ namespace CafeDemo.Formlar
             this.btnEkle.Text = "Ekle";
             this.btnEkle.UseVisualStyleBackColor = true;
             // 
-            // listView1
+            // listKategori
             // 
-            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.listKategori.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.KategoriAdi,
             this.AktifMi});
-            this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(496, 78);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(496, 258);
-            this.listView1.TabIndex = 1;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.Details;
+            this.listKategori.HideSelection = false;
+            this.listKategori.Location = new System.Drawing.Point(496, 78);
+            this.listKategori.Name = "listKategori";
+            this.listKategori.Size = new System.Drawing.Size(496, 258);
+            this.listKategori.TabIndex = 1;
+            this.listKategori.UseCompatibleStateImageBehavior = false;
+            this.listKategori.View = System.Windows.Forms.View.Details;
             // 
             // KategoriAdi
             // 
@@ -626,9 +633,6 @@ namespace CafeDemo.Formlar
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
-            // printDocument1
-            // 
-            // 
             // FrmAyarlar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -650,7 +654,7 @@ namespace CafeDemo.Formlar
             ((System.ComponentModel.ISupportInitialize)(this.pbUrun)).EndInit();
             this.btnResim.ResumeLayout(false);
             this.btnResim.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbKategori)).EndInit();
             this.tabPage3.ResumeLayout(false);
             this.btnKaydetDuzen.ResumeLayout(false);
             this.btnKaydetDuzen.PerformLayout();
@@ -673,7 +677,7 @@ namespace CafeDemo.Formlar
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage btnResim;
         private System.Windows.Forms.TabPage tabPage3;
-        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ListView listKategori;
         private System.Windows.Forms.ColumnHeader KategoriAdi;
         private System.Windows.Forms.ColumnHeader AktifMi;
         private System.Windows.Forms.TextBox txtKategoriAdi;
@@ -681,7 +685,7 @@ namespace CafeDemo.Formlar
         private System.Windows.Forms.Button btnGuncelle;
         private System.Windows.Forms.Button btnSil;
         private System.Windows.Forms.Button btnEkle;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pbKategori;
         private System.Windows.Forms.CheckBox cbKategoriAktifMi;
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.PictureBox pbUrun;
@@ -691,7 +695,7 @@ namespace CafeDemo.Formlar
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.ListView listView2;
+        private System.Windows.Forms.ListView listUrun;
         private System.Windows.Forms.ColumnHeader clmnUrunAdi;
         private System.Windows.Forms.ColumnHeader clmnKategorisi;
         private System.Windows.Forms.ColumnHeader clmnFiyati;
