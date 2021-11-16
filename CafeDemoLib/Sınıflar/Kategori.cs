@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace CafeDemoLib.Sınıflar
 {
-    public class Kategoriler
+    public class Kategori
     {
+        public int KategoriId { get; set; }
         public string Adi { get; set; }
         public byte[] Resim { get; set; }
         public bool Durum { get; set; }

@@ -1,4 +1,4 @@
-﻿
+﻿using CafeDemoLib.Models;
 using CafeDemoLib.Sınıflar;
 using System;
 using System.Collections.Generic;
@@ -13,38 +13,46 @@ namespace CafeOtomasyonuApp.Formlar
         {
             InitializeComponent();
         }
-        public int KatSayisi = 2;
-        private int MasaSayisi = 5;
-        public List<Masa> Masalar = new List<Masa>();
+
+        private Button seciliButon;
+        public int ToplamKatSayisi = 2;
+        private List<Masa> Masalar = new List<Masa>();
+//        private List<SiparisDetay> Siparisler = new List<SiparisDetay>();
+        int MasaAdeti = 20;
+        string Kat = "1";
         public void FrmMasalar_Load(object sender, EventArgs e)
         {
-            //for (int i = 0; i < KatSayisi; i++)
-            //{
-                for (int i = 1; i <= MasaSayisi; i++)
+            for (int i = 1; i <= MasaAdeti; i++)
+            {
+                // Yeni Masa Ekleme
+                Button btn = new Button();
+                btn.Name = $"btnMasa + { i }";
+                btn.Text = "Masa - " + i;
+                btn.Size = new Size(150, 150);
+                btn.TabIndex = i;
+                flwLytPnlMasa.Controls.Add(btn);
+                Masa yeniMasa = new Masa()
                 {
-                    Masalar.Add
-                    (
-                        new Masa() {
-                            MasaNo = i,
-                            KatNo = "1",
-                            Durum = true
-                        }
-                    );
-                    Button btn = new Button();
-                    btn.Name = "btnMasa" + i;
-                    btn.Text = "Masa - " + i;
-                    btn.Size = new Size(150, 150);
-                    flwLytPnlMasa.Controls.Add(btn);
-                    btn.Click += Btn_Click;
-                }
-            //}
+                    MasaNo = i,
+                    KatNo = Kat,
+                    Durum = false // Masa Boş
+                };
+                Masalar.Add(yeniMasa);
+                btn.Click += BtnMasaSiparis_Click;
+            }
+
         }
-        private void Btn_Click(object sender, EventArgs e)
-        {
+        private void BtnMasaSiparis_Click(object sender, EventArgs e)
+        {   // Seçilen butonu
+            seciliButon = sender as Button;
+
             FrmSiparis frmSiparis = new FrmSiparis();
-            Button btn = new Button();
             frmSiparis.MdiParent = Application.OpenForms["Form1"];
+            // Secili butono masa numarası atma
+            frmSiparis.masaNumarası = seciliButon.TabIndex;
+            
             frmSiparis.Show();
         }
+
     }
 }

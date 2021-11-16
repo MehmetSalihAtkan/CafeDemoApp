@@ -29,11 +29,12 @@ namespace CafeOtomasyonuApp.Formlar
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmSiparis));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
-            this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.flwLytPnlKategori = new System.Windows.Forms.FlowLayoutPanel();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
@@ -116,18 +117,6 @@ namespace CafeOtomasyonuApp.Formlar
             this.tableLayoutPanel5.Size = new System.Drawing.Size(169, 81);
             this.tableLayoutPanel5.TabIndex = 4;
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(3, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(163, 20);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "MASA";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // label3
             // 
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -139,6 +128,18 @@ namespace CafeOtomasyonuApp.Formlar
             this.label3.TabIndex = 3;
             this.label3.Text = "1";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label4.Location = new System.Drawing.Point(3, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(163, 20);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "MASA";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // flwLytPnlKategori
             // 
@@ -238,24 +239,29 @@ namespace CafeOtomasyonuApp.Formlar
             this.tableLayoutPanel10.Name = "tableLayoutPanel10";
             this.tableLayoutPanel10.RowCount = 1;
             this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 93F));
+            this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 68F));
             this.tableLayoutPanel10.Size = new System.Drawing.Size(441, 68);
             this.tableLayoutPanel10.TabIndex = 0;
             // 
             // btnHesapOde
             // 
+            this.btnHesapOde.BackColor = System.Drawing.Color.ForestGreen;
             this.btnHesapOde.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnHesapOde.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnHesapOde.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnHesapOde.ForeColor = System.Drawing.Color.White;
             this.btnHesapOde.Location = new System.Drawing.Point(0, 0);
             this.btnHesapOde.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
             this.btnHesapOde.Name = "btnHesapOde";
             this.btnHesapOde.Size = new System.Drawing.Size(217, 68);
             this.btnHesapOde.TabIndex = 2;
             this.btnHesapOde.Text = "HESABI ÖDE";
-            this.btnHesapOde.UseVisualStyleBackColor = true;
+            this.btnHesapOde.UseVisualStyleBackColor = false;
             // 
             // btnHesapIptal
             // 
             this.btnHesapIptal.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnHesapIptal.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnHesapIptal.Location = new System.Drawing.Point(223, 0);
             this.btnHesapIptal.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
             this.btnHesapIptal.Name = "btnHesapIptal";
@@ -266,14 +272,21 @@ namespace CafeOtomasyonuApp.Formlar
             // 
             // btnHesapYazdir
             // 
+            this.btnHesapYazdir.BackColor = System.Drawing.Color.Orange;
+            this.btnHesapYazdir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnHesapYazdir.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnHesapYazdir.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnHesapYazdir.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnHesapYazdir.ForeColor = System.Drawing.Color.Black;
+            this.btnHesapYazdir.Image = ((System.Drawing.Image)(resources.GetObject("btnHesapYazdir.Image")));
+            this.btnHesapYazdir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnHesapYazdir.Location = new System.Drawing.Point(3, 74);
             this.btnHesapYazdir.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnHesapYazdir.Name = "btnHesapYazdir";
             this.btnHesapYazdir.Size = new System.Drawing.Size(441, 68);
             this.btnHesapYazdir.TabIndex = 1;
             this.btnHesapYazdir.Text = "HESABI YAZDIR";
-            this.btnHesapYazdir.UseVisualStyleBackColor = true;
+            this.btnHesapYazdir.UseVisualStyleBackColor = false;
             // 
             // tableLayoutPanel11
             // 
@@ -290,7 +303,7 @@ namespace CafeOtomasyonuApp.Formlar
             this.tableLayoutPanel11.Name = "tableLayoutPanel11";
             this.tableLayoutPanel11.RowCount = 1;
             this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 49F));
+            this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
             this.tableLayoutPanel11.Size = new System.Drawing.Size(447, 35);
             this.tableLayoutPanel11.TabIndex = 3;
             // 

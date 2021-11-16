@@ -8,8 +8,8 @@ namespace CafeDemoLib.Sınıflar
 {
     public class Masa
     {
-            public int MasaNo { get; set; }
-            public string KatNo { get; set; }
-            public bool Durum { get; set; }
+        public int MasaNo { get; set; }
+        public string KatNo { get; set; }
+        public bool Durum { get; set; }
     }
 }
