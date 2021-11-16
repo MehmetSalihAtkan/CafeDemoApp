@@ -111,24 +111,38 @@ namespace CafeDemo.Formlar
             SolidBrush sbrush = new SolidBrush(Color.Black);
             Pen myPen = new Pen(Color.Black);
 
-            e.Graphics.DrawImage(Properties.Resources.logo, 100, 800);
+            e.Graphics.DrawImage(Properties.Resources.logo, 60, 70);
+
 
             //Bu kısımda sipariş formu yazısını ve çizgileri yazdırıyorum
-            e.Graphics.DrawLine(myPen, 120, 120, 750, 120);
-            e.Graphics.DrawLine(myPen, 120, 180, 750, 180);
-            e.Graphics.DrawString("WİSSEN BİSTRO SİPARİŞ FORMU", myFont, sbrush, 180, 120);
-
             e.Graphics.DrawLine(myPen, 120, 320, 750, 320);
+            e.Graphics.DrawLine(myPen, 120, 380, 750, 380);
+            e.Graphics.DrawString("WİSSEN BİSTRO SİPARİŞ FORMU", myFont, sbrush, 180, 320);
 
-            myFont = new Font("Calibri", 12, FontStyle.Bold);
-            e.Graphics.DrawString("Adet", myFont, sbrush, 140, 328);
-            e.Graphics.DrawString("Ürün Adı", myFont, sbrush, 240, 328);
-            e.Graphics.DrawString("Birim Fiyatı", myFont, sbrush, 440, 328);
-            e.Graphics.DrawString("Fiyat", myFont, sbrush, 640, 328);
+            
+            e.Graphics.DrawString("Güle Güle Tekrar Bekleriz  :)", myFont, sbrush, 150, 1020);
 
-            e.Graphics.DrawLine(myPen, 120, 348, 750, 348);
+            e.Graphics.DrawLine(myPen, 120, 520, 750, 520);
 
-            int y = 360;
+            myFont = new Font("Arial", 21, FontStyle.Underline);
+            sbrush = new SolidBrush(Color.Red);
+
+            e.Graphics.DrawString($"Tarih={DateTime.Now.ToString("dd.MM.yyyy HH.mm.ss")}", myFont, sbrush, 450, 50);
+
+            myFont = new Font("Calibri", 16, FontStyle.Bold);
+            sbrush = new SolidBrush(Color.Black);
+            e.Graphics.DrawString("Adet", myFont, sbrush, 125, 528);
+            e.Graphics.DrawString("Ürün Adı", myFont, sbrush, 220, 528);
+            e.Graphics.DrawString("Birim Fiyatı", myFont, sbrush, 460, 528);
+            e.Graphics.DrawString("Fiyat", myFont, sbrush, 640, 528);
+
+
+
+            myFont = new Font("Calibri", 14, FontStyle.Bold);
+            sbrush = new SolidBrush(Color.Black);
+            e.Graphics.DrawLine(myPen, 120, 555, 750, 555);
+
+            int y = 560;
 
             StringFormat myStringFormat = new StringFormat();
             myStringFormat.Alignment = StringAlignment.Far;
@@ -151,8 +165,8 @@ namespace CafeDemo.Formlar
 
             e.Graphics.DrawLine(myPen, 120, y, 750, y);
             e.Graphics.DrawString(gTotal.ToString("c"), myFont, sbrush, 700, y + 10, myStringFormat);
-            
-            
+
+
 
 
         }
