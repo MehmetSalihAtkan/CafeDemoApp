@@ -3,6 +3,7 @@ using System.Windows.Forms;
 
 namespace CafeOtomasyonuApp.UserControls
 {
+    public delegate void OrderClicked(object sender, EventArgs e);
 
     public partial class BtnYemekSecme : UserControl
     {
@@ -12,33 +13,20 @@ namespace CafeOtomasyonuApp.UserControls
         }
         public string YemekIsmi
         {
-            set => txtYemek.Text = "Ali Baba";
-            get => txtYemek.Text;
+            get => btnYemekSiparis.Text;
+            set => btnYemekSiparis.Text = value;
         }
-
         public string Fiyat
         {
-            set => txtFiyat.Text = "14.10";
             get => txtFiyat.Text;
+            set => txtFiyat.Text = value + " ₺";
         }
-
-        public int Adet = 0;
-        public void btnArttir_Click(object sender, EventArgs e)
+        public event OrderClicked OrderClicked;
+        public void btnYemekSiparis_Click(object sender, EventArgs e)
         {
-            Adet = Adet + 1;
-            MessageBox.Show($"Yeni Siparis Adedi: {Adet}");
 
+            OrderClicked?.Invoke(sender, e);
         }
 
-        public void btnAzalt_Click(object sender, EventArgs e)
-        {
-            if (Adet >= 1)
-            {
-                Adet--;
-                MessageBox.Show($"Yeni Siparis Adedi: {Adet}");
-            }
-            else   
-                MessageBox.Show("Ürün adedi: 0");
-        }
     }
 }

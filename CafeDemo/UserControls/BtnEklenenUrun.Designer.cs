@@ -30,12 +30,12 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BtnEklenenUrun));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.btnYemekAdetArttir = new System.Windows.Forms.Button();
-            this.btnYemekAdetAzalt = new System.Windows.Forms.Button();
-            this.txtYemekAdet = new System.Windows.Forms.Label();
-            this.txtYemekIsmi = new System.Windows.Forms.Label();
-            this.txtYemekTutari = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.txtUrunToplamTutar = new System.Windows.Forms.Label();
+            this.btnYemekAdetAzalt = new System.Windows.Forms.Button();
+            this.txtSiparisIsmi = new System.Windows.Forms.Label();
+            this.txtUrunAdet = new System.Windows.Forms.Label();
+            this.btnYemekAdetArttir = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -51,10 +51,10 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 7F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Controls.Add(this.label1, 5, 0);
-            this.tableLayoutPanel1.Controls.Add(this.txtYemekTutari, 4, 0);
+            this.tableLayoutPanel1.Controls.Add(this.txtUrunToplamTutar, 4, 0);
             this.tableLayoutPanel1.Controls.Add(this.btnYemekAdetAzalt, 3, 0);
-            this.tableLayoutPanel1.Controls.Add(this.txtYemekIsmi, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.txtYemekAdet, 2, 0);
+            this.tableLayoutPanel1.Controls.Add(this.txtSiparisIsmi, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.txtUrunAdet, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.btnYemekAdetArttir, 1, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
@@ -64,85 +64,6 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(298, 34);
             this.tableLayoutPanel1.TabIndex = 0;
-            this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
-            // 
-            // btnYemekAdetArttir
-            // 
-            this.btnYemekAdetArttir.BackColor = System.Drawing.Color.LimeGreen;
-            this.btnYemekAdetArttir.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnYemekAdetArttir.BackgroundImage")));
-            this.btnYemekAdetArttir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnYemekAdetArttir.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnYemekAdetArttir.Location = new System.Drawing.Point(152, 2);
-            this.btnYemekAdetArttir.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnYemekAdetArttir.Name = "btnYemekAdetArttir";
-            this.btnYemekAdetArttir.Size = new System.Drawing.Size(23, 30);
-            this.btnYemekAdetArttir.TabIndex = 0;
-            this.btnYemekAdetArttir.UseVisualStyleBackColor = false;
-            this.btnYemekAdetArttir.Click += new System.EventHandler(this.btnYemekAdetArttir_Click);
-            // 
-            // btnYemekAdetAzalt
-            // 
-            this.btnYemekAdetAzalt.BackColor = System.Drawing.Color.Tomato;
-            this.btnYemekAdetAzalt.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnYemekAdetAzalt.BackgroundImage")));
-            this.btnYemekAdetAzalt.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnYemekAdetAzalt.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnYemekAdetAzalt.Location = new System.Drawing.Point(204, 2);
-            this.btnYemekAdetAzalt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnYemekAdetAzalt.Name = "btnYemekAdetAzalt";
-            this.btnYemekAdetAzalt.Size = new System.Drawing.Size(23, 30);
-            this.btnYemekAdetAzalt.TabIndex = 1;
-            this.btnYemekAdetAzalt.UseVisualStyleBackColor = false;
-            this.btnYemekAdetAzalt.Click += new System.EventHandler(this.btnYemekAdetAzalt_Click);
-            // 
-            // txtYemekAdet
-            // 
-            this.txtYemekAdet.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtYemekAdet.AutoSize = true;
-            this.txtYemekAdet.BackColor = System.Drawing.Color.Transparent;
-            this.txtYemekAdet.Location = new System.Drawing.Point(179, 1);
-            this.txtYemekAdet.Margin = new System.Windows.Forms.Padding(1);
-            this.txtYemekAdet.Name = "txtYemekAdet";
-            this.txtYemekAdet.Size = new System.Drawing.Size(21, 32);
-            this.txtYemekAdet.TabIndex = 2;
-            this.txtYemekAdet.Text = "1";
-            this.txtYemekAdet.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.txtYemekAdet.Click += new System.EventHandler(this.txtYemekAdet_Click);
-            // 
-            // txtYemekIsmi
-            // 
-            this.txtYemekIsmi.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtYemekIsmi.AutoSize = true;
-            this.txtYemekIsmi.BackColor = System.Drawing.Color.Transparent;
-            this.txtYemekIsmi.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtYemekIsmi.Location = new System.Drawing.Point(1, 1);
-            this.txtYemekIsmi.Margin = new System.Windows.Forms.Padding(1);
-            this.txtYemekIsmi.Name = "txtYemekIsmi";
-            this.txtYemekIsmi.Size = new System.Drawing.Size(147, 32);
-            this.txtYemekIsmi.TabIndex = 3;
-            this.txtYemekIsmi.Text = "Kuru Fasulye";
-            this.txtYemekIsmi.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.txtYemekIsmi.Click += new System.EventHandler(this.txtYemekIsmi_Click);
-            // 
-            // txtYemekTutari
-            // 
-            this.txtYemekTutari.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtYemekTutari.AutoSize = true;
-            this.txtYemekTutari.BackColor = System.Drawing.Color.Transparent;
-            this.txtYemekTutari.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtYemekTutari.Location = new System.Drawing.Point(231, 1);
-            this.txtYemekTutari.Margin = new System.Windows.Forms.Padding(1);
-            this.txtYemekTutari.Name = "txtYemekTutari";
-            this.txtYemekTutari.Size = new System.Drawing.Size(42, 32);
-            this.txtYemekTutari.TabIndex = 4;
-            this.txtYemekTutari.Text = "5";
-            this.txtYemekTutari.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.txtYemekTutari.Click += new System.EventHandler(this.txtYemekTutari_Click);
             // 
             // label1
             // 
@@ -159,7 +80,81 @@
             this.label1.TabIndex = 5;
             this.label1.Text = "₺";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // txtUrunToplamTutar
+            // 
+            this.txtUrunToplamTutar.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtUrunToplamTutar.AutoSize = true;
+            this.txtUrunToplamTutar.BackColor = System.Drawing.Color.Transparent;
+            this.txtUrunToplamTutar.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtUrunToplamTutar.Location = new System.Drawing.Point(231, 1);
+            this.txtUrunToplamTutar.Margin = new System.Windows.Forms.Padding(1);
+            this.txtUrunToplamTutar.Name = "txtUrunToplamTutar";
+            this.txtUrunToplamTutar.Size = new System.Drawing.Size(42, 32);
+            this.txtUrunToplamTutar.TabIndex = 4;
+            this.txtUrunToplamTutar.Text = "5";
+            this.txtUrunToplamTutar.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btnYemekAdetAzalt
+            // 
+            this.btnYemekAdetAzalt.BackColor = System.Drawing.Color.Tomato;
+            this.btnYemekAdetAzalt.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnYemekAdetAzalt.BackgroundImage")));
+            this.btnYemekAdetAzalt.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnYemekAdetAzalt.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnYemekAdetAzalt.Location = new System.Drawing.Point(204, 2);
+            this.btnYemekAdetAzalt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnYemekAdetAzalt.Name = "btnYemekAdetAzalt";
+            this.btnYemekAdetAzalt.Size = new System.Drawing.Size(23, 30);
+            this.btnYemekAdetAzalt.TabIndex = 1;
+            this.btnYemekAdetAzalt.UseVisualStyleBackColor = false;
+            this.btnYemekAdetAzalt.Click += new System.EventHandler(this.btnYemekAdetAzalt_Click);
+            // 
+            // txtSiparisIsmi
+            // 
+            this.txtSiparisIsmi.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtSiparisIsmi.AutoSize = true;
+            this.txtSiparisIsmi.BackColor = System.Drawing.Color.Transparent;
+            this.txtSiparisIsmi.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtSiparisIsmi.Location = new System.Drawing.Point(1, 1);
+            this.txtSiparisIsmi.Margin = new System.Windows.Forms.Padding(1);
+            this.txtSiparisIsmi.Name = "txtSiparisIsmi";
+            this.txtSiparisIsmi.Size = new System.Drawing.Size(147, 32);
+            this.txtSiparisIsmi.TabIndex = 3;
+            this.txtSiparisIsmi.Text = "Kuru Fasulye";
+            this.txtSiparisIsmi.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // txtUrunAdet
+            // 
+            this.txtUrunAdet.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtUrunAdet.AutoSize = true;
+            this.txtUrunAdet.BackColor = System.Drawing.Color.Transparent;
+            this.txtUrunAdet.Location = new System.Drawing.Point(179, 1);
+            this.txtUrunAdet.Margin = new System.Windows.Forms.Padding(1);
+            this.txtUrunAdet.Name = "txtUrunAdet";
+            this.txtUrunAdet.Size = new System.Drawing.Size(21, 32);
+            this.txtUrunAdet.TabIndex = 2;
+            this.txtUrunAdet.Text = "1";
+            this.txtUrunAdet.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btnYemekAdetArttir
+            // 
+            this.btnYemekAdetArttir.BackColor = System.Drawing.Color.LimeGreen;
+            this.btnYemekAdetArttir.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnYemekAdetArttir.BackgroundImage")));
+            this.btnYemekAdetArttir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnYemekAdetArttir.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnYemekAdetArttir.Location = new System.Drawing.Point(152, 2);
+            this.btnYemekAdetArttir.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnYemekAdetArttir.Name = "btnYemekAdetArttir";
+            this.btnYemekAdetArttir.Size = new System.Drawing.Size(23, 30);
+            this.btnYemekAdetArttir.TabIndex = 0;
+            this.btnYemekAdetArttir.UseVisualStyleBackColor = false;
+            this.btnYemekAdetArttir.Click += new System.EventHandler(this.btnYemekAdetArttir_Click);
             // 
             // BtnEklenenUrun
             // 
@@ -178,12 +173,12 @@
 
         #endregion
 
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.Button btnYemekAdetArttir;
-        private System.Windows.Forms.Button btnYemekAdetAzalt;
-        private System.Windows.Forms.Label txtYemekAdet;
-        private System.Windows.Forms.Label txtYemekIsmi;
-        private System.Windows.Forms.Label txtYemekTutari;
-        private System.Windows.Forms.Label label1;
+        public System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        public System.Windows.Forms.Button btnYemekAdetArttir;
+        public System.Windows.Forms.Button btnYemekAdetAzalt;
+        public System.Windows.Forms.Label txtUrunAdet;
+        public System.Windows.Forms.Label txtSiparisIsmi;
+        public System.Windows.Forms.Label txtUrunToplamTutar;
+        public System.Windows.Forms.Label label1;
     }
 }
