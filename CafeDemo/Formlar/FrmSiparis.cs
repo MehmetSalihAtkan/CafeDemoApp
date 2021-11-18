@@ -126,27 +126,28 @@ namespace CafeOtomasyonuApp.Formlar
         {
             var secilenYemek = sender as Button;
 
-            var seciliUrun = secilenYemek.Tag as Urunler;
+            // Tag ile butona ulaşma
+            //var seciliUrun = secilenYemek.Tag as Urunler;
 
-            BtnEklenenUrun btnEklenenUrun = new BtnEklenenUrun();
-            btnEklenenUrun.Size = new Size(flwLytYemekEklemeEkrani.Width - 30, 45);
-            flwLytYemekEklemeEkrani.Controls.Add(btnEklenenUrun);
-            btnEklenenUrun.BirimFiyat = seciliUrun.BirimFiyat;
+            //BtnEklenenUrun btnEklenenUrun = new BtnEklenenUrun();
+            //btnEklenenUrun.Size = new Size(flwLytYemekEklemeEkrani.Width - 30, 45);
+            //flwLytYemekEklemeEkrani.Controls.Add(btnEklenenUrun);
+            //btnEklenenUrun.BirimFiyat = secilenYemek.BirimFiyat;
 
-            toplamTutar += btnEklenenUrun.Tutar;
+            //toplamTutar += btnEklenenUrun.Tutar;
 
 
-            //for(int i=0; i< _urunler.Count; i++)
-            //{
-            //    if (secilenYemek.Text != _urunler[i].UrunAd)
-            //        continue;
-            //    BtnEklenenUrun btnEklenenUrun = new BtnEklenenUrun();
-            //    btnEklenenUrun.Size = new Size(flwLytYemekEklemeEkrani.Width - 30, 45);
-            //    flwLytYemekEklemeEkrani.Controls.Add(btnEklenenUrun);
-            //    btnEklenenUrun.txtSiparisIsmi.Text = _urunler[i].UrunAd;
-            //    btnEklenenUrun.BirimFiyat = _urunler[i].BirimFiyat;
-            //    toplamTutar = toplamTutar + btnEklenenUrun.Tutar;
-            //}
+            for (int i = 0; i < _urunler.Count; i++)
+            {
+                if (secilenYemek.Text != _urunler[i].UrunAd)
+                    continue;
+                BtnEklenenUrun btnEklenenUrun = new BtnEklenenUrun();
+                btnEklenenUrun.Size = new Size(flwLytYemekEklemeEkrani.Width - 30, 45);
+                flwLytYemekEklemeEkrani.Controls.Add(btnEklenenUrun);
+                btnEklenenUrun.txtSiparisIsmi.Text = _urunler[i].UrunAd;
+                btnEklenenUrun.BirimFiyat = _urunler[i].BirimFiyat;
+                toplamTutar = toplamTutar + btnEklenenUrun.Tutar;
+            }
 
             txtToplamTutar.Text = toplamTutar.ToString();
             
