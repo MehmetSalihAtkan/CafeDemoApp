@@ -24,7 +24,6 @@ namespace CafeOtomasyonuApp.UserControls
         public event OrderClicked OrderClicked;
         public void btnYemekSiparis_Click(object sender, EventArgs e)
         {
-
             OrderClicked?.Invoke(sender, e);
         }
 

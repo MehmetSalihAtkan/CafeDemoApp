@@ -124,7 +124,7 @@
             this.txtSiparisIsmi.Name = "txtSiparisIsmi";
             this.txtSiparisIsmi.Size = new System.Drawing.Size(147, 32);
             this.txtSiparisIsmi.TabIndex = 3;
-            this.txtSiparisIsmi.Text = "Kuru Fasulye";
+            this.txtSiparisIsmi.Text = "";
             this.txtSiparisIsmi.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // txtUrunAdet
