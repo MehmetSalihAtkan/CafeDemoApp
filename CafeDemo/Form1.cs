@@ -1,4 +1,5 @@
 ﻿using CafeDemo.Formlar;
+using CafeDemoLib.Contextler;
 using CafeDemoLib.Models;
 using CafeOtomasyonuApp.Formlar;
 using System;
@@ -67,7 +68,10 @@ namespace CafeDemo
 
         private void Form1_Load(object sender, EventArgs e)
         {
-           
+            KategoriContext.Load();
+            UrunContext.Load();
+            RestoranDuzenContext.Load();
+            RestoranBilgiContext.Load();
         }
     }
 }

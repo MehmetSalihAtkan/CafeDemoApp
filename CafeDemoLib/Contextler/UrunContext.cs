@@ -13,7 +13,7 @@ namespace CafeDemoLib.Contextler
     public class UrunContext
     {
         private static string _path =
-              Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "/CafeDemo/db.json";
+              Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "/CafeDemo/Urun.json";
         public static List<Urun> Urunler { get; set; } = new List<Urun>();
         public static void Load()
         {

@@ -13,7 +13,7 @@ namespace CafeDemoLib.Contextler
     public class KategoriContext
     {
         private static string _path =
-                 Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "/CafeDemo/db.json";
+                 Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "/CafeDemo/Kategori.json";
         public static List<Kategori> Kategoriler { get; set; } = new List<Kategori>();
         public static void Load()
         {
@@ -35,7 +35,7 @@ namespace CafeDemoLib.Contextler
             }
             else
             {
-                Directory.CreateDirectory("C:/KisiEnvanteri");
+                Directory.CreateDirectory(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "/CafeDemo");
             }
         }
         public static void Save()

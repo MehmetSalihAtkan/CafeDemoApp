@@ -10,10 +10,10 @@ using System.Threading.Tasks;
 
 namespace CafeDemoLib.Contextler
 {
-    class RestoranBilgiContext
+    public class RestoranBilgiContext
     {
         private static string _path =
-                 Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "/CafeDemo/db.json";
+                 Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "/CafeDemo/RestoranBilgi.json";
         public static List<RestoranBilgi> RestoranBilgiler { get; set; } = new List<RestoranBilgi>();
         public static void Load()
         {
@@ -35,7 +35,7 @@ namespace CafeDemoLib.Contextler
             }
             else
             {
-                Directory.CreateDirectory("C:/KisiEnvanteri");
+                Directory.CreateDirectory(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "/CafeDemo");
             }
         }
         public static void Save()

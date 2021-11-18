@@ -84,6 +84,7 @@ namespace CafeDemo.Formlar
             dgUrun.DataSource = null;
             dgUrun.DataSource = UrunContext.Urunler;
             dgUrun.Columns["UrunId"].Visible = false;
+            UrunContext.Save();
         }
 
         private Urun _seciliUrun;
@@ -228,6 +229,7 @@ namespace CafeDemo.Formlar
             restoranIletisim.SirketAdi = txtRestoranAdi.Text;
             restoranIletisim.Telefon = txtTelefon.Text;
             restoranIletisim.Adres = txtAdres.Text;
+            RestoranBilgiContext.Save();
         }
         RestoranDuzen _seciliRestoranDuzeni;
         
@@ -286,6 +288,17 @@ namespace CafeDemo.Formlar
             cbKategoriAktifMi.Checked = false;
             pbUrun.Image = null;            
 
+        }
+
+        private void FrmAyarlar_Load(object sender, EventArgs e)
+        {
+            UrunDoldur();
+            KategoriDoldur();
+            KatDuzenDoldur();
+            KategoriContext.Load();
+            UrunContext.Load();
+            RestoranDuzenContext.Load();
+            RestoranBilgiContext.Load();
         }
     }
 }
