@@ -18,6 +18,7 @@ namespace CafeOtomasyonuApp.Formlar
         private Button seciliKategoriButonu;
 
         private List<SiparisDetay> Siparisler = new List<SiparisDetay>();
+
         public int masaNumarası;
 
         private List<Kategori> Kategoriler = new List<Kategori>();
@@ -141,19 +142,18 @@ namespace CafeOtomasyonuApp.Formlar
             {
                 if (secilenYemek.Text != _urunler[i].UrunAd)
                     continue;
-                BtnEklenenUrun btnEklenenUrun = new BtnEklenenUrun();
-                btnEklenenUrun.Size = new Size(flwLytYemekEklemeEkrani.Width - 30, 45);
-                flwLytYemekEklemeEkrani.Controls.Add(btnEklenenUrun);
-                btnEklenenUrun.txtSiparisIsmi.Text = _urunler[i].UrunAd;
-                btnEklenenUrun.BirimFiyat = _urunler[i].BirimFiyat;
-                toplamTutar = toplamTutar + btnEklenenUrun.Tutar;
+                BtnEklenenUrun btnYeniUrun = new BtnEklenenUrun();
+                btnYeniUrun.Size = new Size(flwLytYemekEklemeEkrani.Width - 30, 45);
+                flwLytYemekEklemeEkrani.Controls.Add(btnYeniUrun);
+                btnYeniUrun.txtSiparisIsmi.Text = _urunler[i].UrunAd;
+                btnYeniUrun.BirimFiyat = _urunler[i].BirimFiyat;
+                btnYeniUrun.txtUrunToplamTutar.Text = (_urunler[i].BirimFiyat * btnYeniUrun.Adet).ToString();
+
             }
 
             txtToplamTutar.Text = toplamTutar.ToString();
-            
+
             //btnEklenenUrun.txtSiparisIsmi.Text = secilenYemek.YemekIsmi;
         }
-
-
     }
 }
