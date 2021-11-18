@@ -84,6 +84,7 @@ namespace CafeDemo.Formlar
             dgUrun.DataSource = null;
             dgUrun.DataSource = UrunContext.Urunler;
             dgUrun.Columns["UrunId"].Visible = false;
+            dgUrun.Columns["MenuDurum"].Visible = false;
             UrunContext.Save();
         }
 
@@ -142,6 +143,7 @@ namespace CafeDemo.Formlar
         }
         private void KategoriDoldur()
         {
+            cmbKategorisi.Items.Clear();
             foreach (Kategori kategori in KategoriContext.Kategoriler)
             {
                 cmbKategorisi.Items.Add(kategori.Adi);
@@ -149,6 +151,7 @@ namespace CafeDemo.Formlar
             dgKategori.DataSource = null;
             dgKategori.DataSource = KategoriContext.Kategoriler;
             dgKategori.Columns["KategoriId"].Visible = false;
+            KategoriContext.Save();
         }
         private void btnKategoriEkle_Click(object sender, EventArgs e)
         {
@@ -222,10 +225,9 @@ namespace CafeDemo.Formlar
                 pbKategori.Image = Image.FromStream(stream);
             }
         }
-
+        private static RestoranBilgi restoranIletisim;
         private void btnKaydetIletisim_Click(object sender, EventArgs e)
-        {
-            RestoranBilgi restoranIletisim = new RestoranBilgi();
+        {           
             restoranIletisim.SirketAdi = txtRestoranAdi.Text;
             restoranIletisim.Telefon = txtTelefon.Text;
             restoranIletisim.Adres = txtAdres.Text;
