@@ -1,4 +1,5 @@
-﻿using CafeDemoLib.Models;
+﻿using CafeDemoLib.Contextler;
+using CafeDemoLib.Models;
 using CafeDemoLib.Sınıflar;
 using System;
 using System.Collections.Generic;
@@ -73,7 +74,7 @@ namespace CafeDemo.Formlar
 
                 yeniUrun.Resim = resimStream.ToArray();
             }
-            AyarlarContext.Urunler.Add(yeniUrun);
+            UrunContext.Urunler.Add(yeniUrun);
             UrunDoldur();
             UrunTemizle();
         }
@@ -81,7 +82,7 @@ namespace CafeDemo.Formlar
         private void UrunDoldur()
         {
             dgUrun.DataSource = null;
-            dgUrun.DataSource = AyarlarContext.Urunler;
+            dgUrun.DataSource = UrunContext.Urunler;
             dgUrun.Columns["UrunId"].Visible = false;
         }
 
@@ -91,7 +92,7 @@ namespace CafeDemo.Formlar
 
             string deger = dgUrun.CurrentRow.Cells["UrunId"].Value.ToString();
 
-            _seciliUrun = AyarlarContext.Urunler.Where(x => x.UrunId == deger).First() as Urun;
+            _seciliUrun = UrunContext.Urunler.Where(x => x.UrunId == deger).First() as Urun;
             txtUrunAdi.Text = _seciliUrun.UrunAdi;
             cmbKategorisi.Text = _seciliUrun.Kategori;
             nudFiyat.Value = _seciliUrun.BirimFiyat;
@@ -127,26 +128,26 @@ namespace CafeDemo.Formlar
             }
 
             UrunDoldur();
-            UrunTemizle()
+            UrunTemizle();
         }
 
         private void btnUrunSil_Click(object sender, EventArgs e)
         {
             var result = MessageBox.Show($"{_seciliUrun.UrunAdi} adlı ürünü silmek istediğinizden emin misiniz?", "Dikkat", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
-                AyarlarContext.Urunler.Remove(_seciliUrun);
+                UrunContext.Urunler.Remove(_seciliUrun);
             UrunDoldur();
             UrunTemizle();
         }
         private void KategoriDoldur()
         {
-            foreach (Kategori kategori in AyarlarContext.dataS.Load())
+            foreach (Kategori kategori in KategoriContext.Kategoriler)
             {
                 cmbKategorisi.Items.Add(kategori.Adi);
             }
-            dgUrun.DataSource = null;
-            dgUrun.DataSource = AyarlarContext.Urunler;
-            dgUrun.Columns["UrunId"].Visible = false;
+            dgKategori.DataSource = null;
+            dgKategori.DataSource = KategoriContext.Kategoriler;
+            dgKategori.Columns["KategoriId"].Visible = false;
         }
         private void btnKategoriEkle_Click(object sender, EventArgs e)
         {
@@ -164,7 +165,7 @@ namespace CafeDemo.Formlar
 
                 yeniKategori.Resim = resimStream.ToArray();
             }
-            AyarlarContext.Kategoriler.Add(yeniKategori);
+            KategoriContext.Kategoriler.Add(yeniKategori);
             KategoriDoldur();
             KategoriTemizle();
         }
@@ -173,7 +174,7 @@ namespace CafeDemo.Formlar
         {
             var result = MessageBox.Show($"{_seciliKategori.Adi} adlı kategoriyi silmek istediğinizden emin misiniz?", "Dikkat", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
-                AyarlarContext.Kategoriler.Remove(_seciliKategori);
+                KategoriContext.Kategoriler.Remove(_seciliKategori);
             KategoriDoldur();
             KategoriTemizle();
 
@@ -209,7 +210,7 @@ namespace CafeDemo.Formlar
         {
             string deger = dgKategori.CurrentRow.Cells["KategoriId"].Value.ToString();
 
-            _seciliKategori = AyarlarContext.Kategoriler.Where(x => x.KategoriId == deger).First() as Kategori;
+            _seciliKategori = KategoriContext.Kategoriler.Where(x => x.KategoriId == deger).First() as Kategori;
             txtKategoriAdi.Text = _seciliKategori.Adi;
 
 
@@ -239,7 +240,7 @@ namespace CafeDemo.Formlar
                 Durum = restoranBolum1.Durum,
                 MasaSayisi = masasayi
             };
-            AyarlarContext.Katlar.Add(yeniKatDuzen);
+            RestoranDuzenContext.Bolumler.Add(yeniKatDuzen);
             KatDuzenDoldur();
             KatDuzenTemizle();
         }
@@ -250,13 +251,13 @@ namespace CafeDemo.Formlar
             if (lstBolumler.SelectedItem == null) return;
             _seciliRestoranDuzeni = lstBolumler.SelectedItem as RestoranDuzen;
             restoranBolum1.BolumAdi = _seciliRestoranDuzeni.Adi;
-            restoranBolum1.MasaSayisi = _seciliRestoranDuzeni.MasaSayisi;
+            restoranBolum1.MasaSayisi = _seciliRestoranDuzeni.MasaSayisi.ToString();
             restoranBolum1.Durum = _seciliRestoranDuzeni.Durum;
         }
         private void KatDuzenDoldur()
         {
             lstBolumler.Items.Clear();
-            foreach (RestoranDuzen kat in AyarlarContext.Katlar)
+            foreach (RestoranDuzen kat in RestoranDuzenContext.Bolumler)
             {
                 lstBolumler.Items.Add(kat.ToString());
             }

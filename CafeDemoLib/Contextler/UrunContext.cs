@@ -14,7 +14,7 @@ namespace CafeDemoLib.Contextler
     {
         private static string _path =
               Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "/CafeDemo/db.json";
-        public List<Urun> Urunler { get; set; } = new List<Urun>();
+        public static List<Urun> Urunler { get; set; } = new List<Urun>();
         public static void Load()
         {
             if (File.Exists(_path))
@@ -26,7 +26,7 @@ namespace CafeDemoLib.Contextler
                     string dosyaIcerigi = reader.ReadToEnd();
                     reader.Close();
                     reader.Dispose();
-                    Bolumler = JsonConvert.DeserializeObject<List<RestoranDuzen>>(dosyaIcerigi);
+                    Urunler = JsonConvert.DeserializeObject<List<Urun>>(dosyaIcerigi);
                 }
                 catch (Exception ex)
                 {
@@ -35,7 +35,7 @@ namespace CafeDemoLib.Contextler
             }
             else
             {
-                Directory.CreateDirectory("C:/KisiEnvanteri");
+                Directory.CreateDirectory(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "/CafeDemo");
             }
         }
         public static void Save()
@@ -44,7 +44,7 @@ namespace CafeDemoLib.Contextler
             {
                 FileStream fileStream = new FileStream(_path, FileMode.OpenOrCreate);
                 StreamWriter writer = new StreamWriter(fileStream);
-                writer.Write(JsonConvert.SerializeObject(Bolumler, Formatting.Indented));
+                writer.Write(JsonConvert.SerializeObject(Urunler, Formatting.Indented));
                 writer.Close();
                 writer.Dispose();
             }
