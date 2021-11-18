@@ -15,5 +15,6 @@ namespace CafeDemoLib.Sınıflar
         public string Kategori { get; set; }
         public byte[] Resim { get; set; }
         public bool Durum { get; set; }
+        public bool MenuDurum { get; set; }
     }
 }

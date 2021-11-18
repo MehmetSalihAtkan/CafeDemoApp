@@ -20,7 +20,6 @@ namespace CafeOtomasyonuApp.Formlar
         private Button seciliKategoriButonu;
 
         private List<SiparisDetay> Siparisler = new List<SiparisDetay>();
-
         public int masaNumarası;
 
         private List<Kategori> Kategoriler = new List<Kategori>();
@@ -46,28 +45,31 @@ namespace CafeOtomasyonuApp.Formlar
         {
             Kategori = "Çorbalar",
             UrunAdi = "Mercimek Çorbası",
-            BirimFiyat = 5
+            BirimFiyat = 5,
+            MenuDurum = false
 
         };
         UrunAyar urun2 = new UrunAyar()
         {
             Kategori = "Çorbalar",
             UrunAdi = "Tavuk Çorbası",
-            BirimFiyat = 10
-
+            BirimFiyat = 10,
+            MenuDurum = false
         };
         UrunAyar urun3 = new UrunAyar()
         {
             Kategori = "İçecekler",
             UrunAdi = "Kola",
-            BirimFiyat = 2
+            BirimFiyat = 2,
+            MenuDurum = false
         };
         UrunAyar urun4 = new UrunAyar()
         {
 
             Kategori = "İçecekler",
             UrunAdi = "Ayran",
-            BirimFiyat = 3
+            BirimFiyat = 3,
+            MenuDurum = false
         };
 
 
@@ -92,15 +94,13 @@ namespace CafeOtomasyonuApp.Formlar
                 if (!Kategoriler[i].Durum)
                     continue;
                 Button btnKategori = new Button();
-                btnKategori.Name = "btnKategori" + i; // 2 heceliyse patlar degistir
+                btnKategori.Name = "btnKategori" + i;
                 btnKategori.Text = Kategoriler[i].Adi;
                 btnKategori.Size = new Size(kategoriPanelWidth, kategoriPanelHeight);
                 flwLytPnlKategori.Controls.Add(btnKategori);
                 btnKategori.Click += BtnKategori_Click; // siparis adeti girme
             }
-
         }
-
         public void BtnKategori_Click(object sender, EventArgs e)
         {
             this.flwLytYemekEkleme.Controls.Clear();
@@ -130,9 +130,10 @@ namespace CafeOtomasyonuApp.Formlar
             var secilenYemek = sender as Button;
             for (int i = 0; i < _urunler.Count; i++)
             {
-                if (secilenYemek.Text != _urunler[i].UrunAdi)
+                if (secilenYemek.Text != _urunler[i].UrunAdi || _urunler[i].MenuDurum == true)
                     continue;
                 BtnEklenenUrun btnYeniUrun = new BtnEklenenUrun();
+                _urunler[i].MenuDurum = true;
                 btnYeniUrun.Size = new Size(flwLytYemekEklemeEkrani.Width - 30, 45);
                 flwLytYemekEklemeEkrani.Controls.Add(btnYeniUrun);
                 btnYeniUrun.txtSiparisIsmi.Text = _urunler[i].UrunAdi;
@@ -141,17 +142,33 @@ namespace CafeOtomasyonuApp.Formlar
                 btnYeniUrun.ArttirClicked += BtnYeniUrun_ArttirClicked;
                 btnYeniUrun.AzaltClicked += BtnYeniUrun_AzaltClicked;
                 toplamTutar += int.Parse(btnYeniUrun.txtUrunToplamTutar.Text);
+
             }
-            ToplamHesapla();
+            ToplamaHesapla();
+            CikarHesapla();
         }
 
         private void BtnYeniUrun_ArttirClicked(object sender, EventArgs e)
         {
-            ToplamHesapla();
+            ToplamaHesapla();
 
         }
+        private void BtnYeniUrun_AzaltClicked(object sender, EventArgs e)
+        {
+            CikarHesapla();
+        }
 
-        private void ToplamHesapla()
+        private void ToplamaHesapla()
+        {
+            decimal total = 0;
+            foreach (BtnEklenenUrun item in flwLytYemekEklemeEkrani.Controls)
+            {
+                total += item.ToplamTutar;
+            }
+            toplamTutar = total;
+            txtToplamTutar.Text = toplamTutar.ToString();
+        }
+        private void CikarHesapla()
         {
             decimal total = 0;
             foreach (BtnEklenenUrun item in flwLytYemekEklemeEkrani.Controls)
@@ -162,9 +179,14 @@ namespace CafeOtomasyonuApp.Formlar
             txtToplamTutar.Text = toplamTutar.ToString();
         }
 
-        private void BtnYeniUrun_AzaltClicked(object sender, EventArgs e)
+        private void btnHesapIptal_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            this.Close();
+        }
+
+        private void btnGeri_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
         }
     }
 }

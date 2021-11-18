@@ -52,6 +52,7 @@ namespace CafeOtomasyonuApp.Formlar
             this.label7 = new System.Windows.Forms.Label();
             this.txtToplamTutar = new System.Windows.Forms.Label();
             this.flwLytYemekEklemeEkrani = new System.Windows.Forms.FlowLayoutPanel();
+            this.btnGeri = new System.Windows.Forms.Button();
             this.txtMasaNo = new System.Windows.Forms.Label();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.lblMasaNo = new System.Windows.Forms.Label();
@@ -157,6 +158,7 @@ namespace CafeOtomasyonuApp.Formlar
             this.tableLayoutPanel6.ColumnCount = 1;
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel6.Controls.Add(this.tableLayoutPanel7, 0, 1);
+            this.tableLayoutPanel6.Controls.Add(this.btnGeri, 0, 0);
             this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel6.Location = new System.Drawing.Point(184, 2);
             this.tableLayoutPanel6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -271,6 +273,7 @@ namespace CafeOtomasyonuApp.Formlar
             this.btnHesapIptal.TabIndex = 3;
             this.btnHesapIptal.Text = "HESABI İPTAL ET";
             this.btnHesapIptal.UseVisualStyleBackColor = true;
+            this.btnHesapIptal.Click += new System.EventHandler(this.btnHesapIptal_Click);
             // 
             // btnHesapYazdir
             // 
@@ -362,11 +365,11 @@ namespace CafeOtomasyonuApp.Formlar
             this.txtToplamTutar.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.txtToplamTutar.AutoSize = true;
             this.txtToplamTutar.Font = new System.Drawing.Font("Segoe UI", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtToplamTutar.Location = new System.Drawing.Point(36, 0);
+            this.txtToplamTutar.Location = new System.Drawing.Point(116, 0);
             this.txtToplamTutar.Name = "txtToplamTutar";
-            this.txtToplamTutar.Size = new System.Drawing.Size(114, 31);
+            this.txtToplamTutar.Size = new System.Drawing.Size(34, 31);
             this.txtToplamTutar.TabIndex = 1;
-            this.txtToplamTutar.Text = "100000";
+            this.txtToplamTutar.Text = "0";
             // 
             // flwLytYemekEklemeEkrani
             // 
@@ -377,6 +380,17 @@ namespace CafeOtomasyonuApp.Formlar
             this.flwLytYemekEklemeEkrani.Name = "flwLytYemekEklemeEkrani";
             this.flwLytYemekEklemeEkrani.Size = new System.Drawing.Size(447, 300);
             this.flwLytYemekEklemeEkrani.TabIndex = 4;
+            // 
+            // btnGeri
+            // 
+            this.btnGeri.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnGeri.Location = new System.Drawing.Point(895, 23);
+            this.btnGeri.Name = "btnGeri";
+            this.btnGeri.Size = new System.Drawing.Size(128, 62);
+            this.btnGeri.TabIndex = 1;
+            this.btnGeri.Text = "GERİ";
+            this.btnGeri.UseVisualStyleBackColor = true;
+            this.btnGeri.Click += new System.EventHandler(this.btnGeri_Click);
             // 
             // txtMasaNo
             // 
@@ -514,5 +528,6 @@ namespace CafeOtomasyonuApp.Formlar
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
         private System.Windows.Forms.Label txtMasa;
         private System.Windows.Forms.Label txtMasaNumarasi;
+        private System.Windows.Forms.Button btnGeri;
     }
 }

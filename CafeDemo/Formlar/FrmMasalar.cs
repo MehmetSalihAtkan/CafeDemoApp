@@ -17,7 +17,9 @@ namespace CafeOtomasyonuApp.Formlar
         private Button seciliButon;
         public int ToplamKatSayisi = 2;
         private List<Masa> Masalar = new List<Masa>();
-//        private List<SiparisDetay> Siparisler = new List<SiparisDetay>();
+
+       
+        //        private List<SiparisDetay> Siparisler = new List<SiparisDetay>();
         int MasaAdeti = 20;
         string Kat = "1";
         public void FrmMasalar_Load(object sender, EventArgs e)
@@ -38,6 +40,7 @@ namespace CafeOtomasyonuApp.Formlar
                     Durum = false // Masa Boş
                 };
                 Masalar.Add(yeniMasa);
+                yeniMasa.Durum = true;
                 btn.Click += BtnMasaSiparis_Click;
             }
 
@@ -45,7 +48,6 @@ namespace CafeOtomasyonuApp.Formlar
         private void BtnMasaSiparis_Click(object sender, EventArgs e)
         {   // Seçilen butonu
             seciliButon = sender as Button;
-
             FrmSiparis frmSiparis = new FrmSiparis();
             frmSiparis.MdiParent = Application.OpenForms["Form1"];
             // Secili butono masa numarası atma
