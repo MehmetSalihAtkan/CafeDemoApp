@@ -232,7 +232,7 @@ namespace CafeDemo.Formlar
             {
                 Adi = bolumAdi,
                 Durum = restoranBolum1.Durum,
-                MasaSayisi = restoranBolum1.MasaSayisi
+                MasaSayisi =Convert.ToInt32(restoranBolum1.MasaSayisi)
             };
             AyarlarContext.Katlar.Add(yeniKatDuzen);
             KatDuzenDoldur();
@@ -245,7 +245,7 @@ namespace CafeDemo.Formlar
             if (lstBolumler.SelectedItem == null) return;
             _seciliRestoranDuzeni = lstBolumler.SelectedItem as KatDuzen;
             restoranBolum1.BolumAdi = _seciliRestoranDuzeni.Adi;
-            restoranBolum1.MasaSayisi = _seciliRestoranDuzeni.MasaSayisi;
+            restoranBolum1.MasaSayisi =_seciliRestoranDuzeni.MasaSayisi.ToString();
             restoranBolum1.Durum = _seciliRestoranDuzeni.Durum;
         }
         private void KatDuzenDoldur()
