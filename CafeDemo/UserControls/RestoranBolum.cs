@@ -15,21 +15,23 @@ namespace CafeDemo.UserControls
         public RestoranBolum()
         {
             InitializeComponent();
+        }
 
-            public string BolumAdi
-        {
-            get => txtBolumAdi.Text;
-            set => txtBolumAdi.Text = value;
-        }
-        public int MasaSayisi
-        {
-            get => Convert.ToInt32(nudMasaSayisi.Value);
-            set => Convert.ToInt32(nudMasaSayisi.Value) = value;
-        }
         public string BolumAdi
         {
             get => txtBolumAdi.Text;
             set => txtBolumAdi.Text = value;
+        }
+        public string MasaSayisi
+        {
+            get =>txtMasaSayisi.Text;
+            set => txtMasaSayisi.Text = value;
+
+        }
+        public bool Durum
+        {
+            get => cbDurum.Checked;
+            set => cbDurum.Checked = value;
         }
 
     }

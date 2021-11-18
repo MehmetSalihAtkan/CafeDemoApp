@@ -16,6 +16,10 @@ namespace CafeDemoLib.Sınıflar
         public int MasaSayisi { get; set; }
         public string KatId { get; set; }
         public string Adi { get; set; }
-        public int KatNo { get; set; }
+        
+        public override string ToString()
+        {
+            return Adi;
+        }
     }
 }

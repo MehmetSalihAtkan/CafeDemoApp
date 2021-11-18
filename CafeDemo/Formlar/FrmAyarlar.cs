@@ -53,77 +53,7 @@ namespace CafeDemo.Formlar
             }
         }
 
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
-        {
-            if (checkBox1.Checked == true)
-            {
-                nudFiyat.Enabled = true;
-            }
-            else
-            {
-                nudFiyat.Enabled = false;
-            }
-        }
-
-        private void checkBox2_CheckedChanged(object sender, EventArgs e)
-        {
-            if (checkBox2.Checked == true)
-            {
-                numericUpDown1.Enabled = true;
-            }
-            else
-            {
-                numericUpDown1.Enabled = false;
-            }
-        }
-
-        private void checkBox3_CheckedChanged(object sender, EventArgs e)
-        {
-            if (checkBox3.Checked == true)
-            {
-                numericUpDown.Enabled = true;
-            }
-            else
-            {
-                numericUpDown.Enabled = false;
-            }
-        }
-
-        private void checkBox4_CheckedChanged(object sender, EventArgs e)
-        {
-            if (checkBox4.Checked == true)
-            {
-                numericUpDown3.Enabled = true;
-            }
-            else
-            {
-                numericUpDown3.Enabled = false;
-            }
-        }
-
-        private void checkBox5_CheckedChanged(object sender, EventArgs e)
-        {
-            if (checkBox5.Checked == true)
-            {
-                numericUpDown4.Enabled = true;
-            }
-            else
-            {
-                numericUpDown4.Enabled = false;
-            }
-        }
-
-        private void checkBox6_CheckedChanged(object sender, EventArgs e)
-        {
-            if (checkBox6.Checked == true)
-            {
-                numericUpDown5.Enabled = true;
-            }
-            else
-            {
-                numericUpDown5.Enabled = false;
-            }
-        }
+        
 
         private void btnUrunEkle_Click(object sender, EventArgs e)
         {
@@ -194,11 +124,11 @@ namespace CafeDemo.Formlar
 
                 throw;
             }
-            
+
             UrunDoldur();
 
         }
-        
+
         private void btnUrunSil_Click(object sender, EventArgs e)
         {
             var result = MessageBox.Show($"{_seciliUrun.UrunAdi} adlı ürünü silmek istediğinizden emin misiniz?", "Dikkat", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -276,8 +206,8 @@ namespace CafeDemo.Formlar
 
             _seciliKategori = AyarlarContext.Kategoriler.Where(x => x.KategoriId == deger).First() as Kategori;
             txtKategoriAdi.Text = _seciliKategori.Adi;
-            
-            
+
+
             cbKategoriAktifMi.Checked = _seciliKategori.Durum;
             if (_seciliKategori.Resim != null)
             {
@@ -293,18 +223,46 @@ namespace CafeDemo.Formlar
             restoranIletisim.Telefon = txtTelefon.Text;
             restoranIletisim.Adres = txtAdres.Text;
         }
-
-        private void btnKaydetDuzen_Click(object sender, EventArgs e)
+        KatDuzen _seciliRestoranDuzeni;
+        
+        private void btnBolumEkle_Click(object sender, EventArgs e)
         {
-            //for (int i = 1; i < 7; i++)
-            //{
-            //    KatDuzen kd = new KatDuzen();
-            //    kd.Adi = checkBox[i].Text;
-            //    kd.KatNo =[i];
-            //    kd.MasaSayisi =Convert.ToInt32(numericUpDown[i].Value);
-            //    kd.Durum = checkBox[i].Checked;                
-            //}   
+            string bolumAdi = restoranBolum1.BolumAdi.Trim();
+            KatDuzen yeniKatDuzen = new KatDuzen()
+            {
+                Adi = bolumAdi,
+                Durum = restoranBolum1.Durum,
+                MasaSayisi = restoranBolum1.MasaSayisi
+            };
+            AyarlarContext.Katlar.Add(yeniKatDuzen);
+            KatDuzenDoldur();
+            KatDuzenTemizle();
+        }
+
+        private void lstBolumler_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            if (lstBolumler.SelectedItem == null) return;
+            _seciliRestoranDuzeni = lstBolumler.SelectedItem as KatDuzen;
+            restoranBolum1.BolumAdi = _seciliRestoranDuzeni.Adi;
+            restoranBolum1.MasaSayisi = _seciliRestoranDuzeni.MasaSayisi;
+            restoranBolum1.Durum = _seciliRestoranDuzeni.Durum;
+        }
+        private void KatDuzenDoldur()
+        {
+            lstBolumler.Items.Clear();
+            foreach (KatDuzen kat in AyarlarContext.Katlar)
+            {
+                lstBolumler.Items.Add(kat.ToString());
+            }
+           
+        }
+        private void KatDuzenTemizle()
+        {
+            restoranBolum1.BolumAdi = string.Empty;
+            restoranBolum1.Durum = false;
+            restoranBolum1.MasaSayisi = string.Empty;
+
         }
     }
 }
-
