@@ -250,7 +250,7 @@ namespace CafeDemo.Formlar
             if (lstBolumler.SelectedItem == null) return;
             _seciliRestoranDuzeni = lstBolumler.SelectedItem as RestoranDuzen;
             restoranBolum1.BolumAdi = _seciliRestoranDuzeni.Adi;
-            restoranBolum1.MasaSayisi =_seciliRestoranDuzeni.MasaSayisi.ToString();
+            restoranBolum1.MasaSayisi = _seciliRestoranDuzeni.MasaSayisi;
             restoranBolum1.Durum = _seciliRestoranDuzeni.Durum;
         }
         private void KatDuzenDoldur()
