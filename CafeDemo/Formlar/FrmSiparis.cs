@@ -39,46 +39,46 @@ namespace CafeOtomasyonuApp.Formlar
         };
         
 
-        private List<Urunler> _urunler = new List<Urunler>();
-        Urunler urun1 = new Urunler()
-        {
-            Kategori = "Çorbalar",
-            UrunAd = "Mercimek Çorbası",
-            BirimFiyat = 5
+        //private List<Urunler> _urunler = new List<Urunler>();
+        //Urunler urun1 = new Urunler()
+        //{
+        //    Kategori = "Çorbalar",
+        //    UrunAd = "Mercimek Çorbası",
+        //    BirimFiyat = 5
             
-        };
-        Urunler urun2 = new Urunler()
-        {
-            Kategori = "Çorbalar",
-            UrunAd = "Tavuk Çorbası",
-            BirimFiyat = 10
+        //};
+        //Urunler urun2 = new Urunler()
+        //{
+        //    Kategori = "Çorbalar",
+        //    UrunAd = "Tavuk Çorbası",
+        //    BirimFiyat = 10
 
-        };
-        Urunler urun3 = new Urunler()
-        {
-            Kategori = "İçecekler",
-            UrunAd = "Kola",
-            BirimFiyat = 2
-        };
-        Urunler urun4 = new Urunler()
-        {
+        //};
+        //Urunler urun3 = new Urunler()
+        //{
+        //    Kategori = "İçecekler",
+        //    UrunAd = "Kola",
+        //    BirimFiyat = 2
+        //};
+        //Urunler urun4 = new Urunler()
+        //{
 
-            Kategori = "İçecekler",
-            UrunAd = "Ayran",
-            BirimFiyat = 3
-        };
+        //    Kategori = "İçecekler",
+        //    UrunAd = "Ayran",
+        //    BirimFiyat = 3
+        //};
 
 
         private void FrmSiparis_Load(object sender, EventArgs e)
         {
             // kategori olusturma
-            Kategoriler.Add(kategori1);
-            Kategoriler.Add(kategori2);
-            Kategoriler.Add(kategori3);
-            _urunler.Add(urun1);
-            _urunler.Add(urun2);
-            _urunler.Add(urun3);
-            _urunler.Add(urun4);
+            //Kategoriler.Add(kategori1);
+            //Kategoriler.Add(kategori2);
+            //Kategoriler.Add(kategori3);
+            //_urunler.Add(urun1);
+            //_urunler.Add(urun2);
+            //_urunler.Add(urun3);
+            //_urunler.Add(urun4);
 
 
             int kategoriPanelWidth = flwLytPnlKategori.Width - 30;
@@ -93,33 +93,33 @@ namespace CafeOtomasyonuApp.Formlar
                 btnKategori.Text = Kategoriler[i].Adi;
                 btnKategori.Size = new Size(kategoriPanelWidth, kategoriPanelHeight);
                 flwLytPnlKategori.Controls.Add(btnKategori);
-                btnKategori.Click += BtnKategori_Click; // siparis adeti girme
+                //btnKategori.Click += BtnKategori_Click; // siparis adeti girme
             }
 
         }
 
-        public void BtnKategori_Click(object sender, EventArgs e)
-        {
-            foreach (Control control in flwLytYemekEkleme.Controls)
-            {
-                flwLytYemekEkleme.Controls.Remove(control);
-                control.Dispose();
-            }
-            seciliKategoriButonu = sender as Button;
-            int yemekPanelGenisligi = flwLytYemekEkleme.Width/3 - 15;
-            int yemekPanelUzunlugu = 120;
-            for (int i = 0; i < _urunler.Count; i++)
-            {
-                if (seciliKategoriButonu.Text != _urunler[i].Kategori)
-                    continue;
-                BtnYemekSecme btnYemekSecme = new BtnYemekSecme();
-                btnYemekSecme.Name = "btn" + _urunler[i].UrunAd;
-                btnYemekSecme.Size = new Size(yemekPanelGenisligi, yemekPanelUzunlugu);
-                flwLytYemekEkleme.Controls.Add(btnYemekSecme);
-                btnYemekSecme.txtYemek.Text = _urunler[i].UrunAd;
-            }
+        //public void BtnKategori_Click(object sender, EventArgs e)
+        //{
+        //    foreach (Control control in flwLytYemekEkleme.Controls)
+        //    {
+        //        flwLytYemekEkleme.Controls.Remove(control);
+        //        control.Dispose();
+        //    }
+        //    seciliKategoriButonu = sender as Button;
+        //    int yemekPanelGenisligi = flwLytYemekEkleme.Width/3 - 15;
+        //    int yemekPanelUzunlugu = 120;
+        //    for (int i = 0; i < _urunler.Count; i++)
+        //    {
+        //        if (seciliKategoriButonu.Text != _urunler[i].Kategori)
+        //            continue;
+        //        BtnYemekSecme btnYemekSecme = new BtnYemekSecme();
+        //        btnYemekSecme.Name = "btn" + _urunler[i].UrunAd;
+        //        btnYemekSecme.Size = new Size(yemekPanelGenisligi, yemekPanelUzunlugu);
+        //        flwLytYemekEkleme.Controls.Add(btnYemekSecme);
+        //        btnYemekSecme.txtYemek.Text = _urunler[i].UrunAd;
+        //    }
             
-        }
+        //}
 
         private void BtnYemekSecme_Click(object sender, EventArgs e)
         {
