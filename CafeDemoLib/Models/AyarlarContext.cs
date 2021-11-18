@@ -13,7 +13,6 @@ namespace CafeDemoLib.Models
         public static List<Kategori> Kategoriler { get; set; } = new List<Kategori>();
         public static List<SiparisDetay> Siparisler { get; set; } = new List<SiparisDetay>();
         public static List<RestoranIletisim> Sirket { get; set; } = new List<RestoranIletisim>();
-
         public static List<KatDuzen> Katlar { get; set; } = new List<KatDuzen>();
 
     }
