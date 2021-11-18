@@ -39,32 +39,32 @@ namespace CafeOtomasyonuApp.Formlar
         };
 
 
-        private List<Urunler> _urunler = new List<Urunler>();
-        Urunler urun1 = new Urunler()
+        private List<UrunAyar> _urunler = new List<UrunAyar>();
+        UrunAyar urun1 = new UrunAyar()
         {
             Kategori = "Çorbalar",
-            UrunAd = "Mercimek Çorbası",
+            UrunAdi = "Mercimek Çorbası",
             BirimFiyat = 5
 
         };
-        Urunler urun2 = new Urunler()
+        UrunAyar urun2 = new UrunAyar()
         {
             Kategori = "Çorbalar",
-            UrunAd = "Tavuk Çorbası",
+            UrunAdi = "Tavuk Çorbası",
             BirimFiyat = 10
 
         };
-        Urunler urun3 = new Urunler()
+        UrunAyar urun3 = new UrunAyar()
         {
             Kategori = "İçecekler",
-            UrunAd = "Kola",
+            UrunAdi = "Kola",
             BirimFiyat = 2
         };
-        Urunler urun4 = new Urunler()
+        UrunAyar urun4 = new UrunAyar()
         {
 
             Kategori = "İçecekler",
-            UrunAd = "Ayran",
+            UrunAdi = "Ayran",
             BirimFiyat = 3
         };
 
@@ -94,7 +94,7 @@ namespace CafeOtomasyonuApp.Formlar
                 btnKategori.Text = Kategoriler[i].Adi;
                 btnKategori.Size = new Size(kategoriPanelWidth, kategoriPanelHeight);
                 flwLytPnlKategori.Controls.Add(btnKategori);
-                btnKategori.Click += BtnKategori_Click; // siparis adeti girme
+                //btnKategori.Click += BtnKategori_Click; // siparis adeti girme
             }
 
         }
@@ -113,10 +113,10 @@ namespace CafeOtomasyonuApp.Formlar
                 if (seciliKategoriButonu.Text != _urunler[i].Kategori)
                     continue;
                 BtnYemekSecme btnYemekSecme = new BtnYemekSecme();
-                btnYemekSecme.Name = "btn" + _urunler[i].UrunAd;
+                btnYemekSecme.Name = "btn" + _urunler[i].UrunAdi;
                 btnYemekSecme.Size = new Size(yemekPanelGenisligi, yemekPanelUzunlugu);
                 flwLytYemekEkleme.Controls.Add(btnYemekSecme);
-                btnYemekSecme.YemekIsmi = _urunler[i].UrunAd;
+                btnYemekSecme.YemekIsmi = _urunler[i].UrunAdi;
                 btnYemekSecme.Fiyat = _urunler[i].BirimFiyat.ToString();
                 btnYemekSecme.btnYemekSiparis.Tag = _urunler[i];
                 btnYemekSecme.OrderClicked += BtnYemekSecme_OrderClicked;
@@ -140,7 +140,7 @@ namespace CafeOtomasyonuApp.Formlar
 
             for (int i = 0; i < _urunler.Count; i++)
             {
-                if (secilenYemek.Text != _urunler[i].UrunAd)
+                if (secilenYemek.Text != _urunler[i].UrunAdi)
                     continue;
                 BtnEklenenUrun btnYeniUrun = new BtnEklenenUrun();
                 btnYeniUrun.Size = new Size(flwLytYemekEklemeEkrani.Width - 30, 45);

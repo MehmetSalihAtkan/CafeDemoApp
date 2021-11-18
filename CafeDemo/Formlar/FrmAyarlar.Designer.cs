@@ -31,9 +31,10 @@ namespace CafeDemo.Formlar
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAyarlar));
-            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.btnEkle = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.dgUrun = new System.Windows.Forms.DataGridView();
+            this.nudFiyat = new System.Windows.Forms.NumericUpDown();
             this.label6 = new System.Windows.Forms.Label();
             this.Kategorisi = new System.Windows.Forms.Label();
             this.cmbKategorisi = new System.Windows.Forms.ComboBox();
@@ -46,12 +47,8 @@ namespace CafeDemo.Formlar
             this.btnUrunSil = new System.Windows.Forms.Button();
             this.btnUrunResim = new System.Windows.Forms.Button();
             this.btnUrunEkle = new System.Windows.Forms.Button();
-            this.listUrun = new System.Windows.Forms.ListView();
-            this.clmnUrunAdi = new System.Windows.Forms.ColumnHeader();
-            this.clmnKategorisi = new System.Windows.Forms.ColumnHeader();
-            this.clmnFiyati = new System.Windows.Forms.ColumnHeader();
-            this.clmnAktifMi = new System.Windows.Forms.ColumnHeader();
             this.btnResim = new System.Windows.Forms.TabPage();
+            this.dgKategori = new System.Windows.Forms.DataGridView();
             this.pbKategori = new System.Windows.Forms.PictureBox();
             this.cbKategoriAktifMi = new System.Windows.Forms.CheckBox();
             this.txtKategoriAdi = new System.Windows.Forms.TextBox();
@@ -60,24 +57,12 @@ namespace CafeDemo.Formlar
             this.btnKategoriSil = new System.Windows.Forms.Button();
             this.btnKategoriResim = new System.Windows.Forms.Button();
             this.btnKategoriEkle = new System.Windows.Forms.Button();
-            this.listKategori = new System.Windows.Forms.ListView();
-            this.KategoriAdi = new System.Windows.Forms.ColumnHeader();
-            this.AktifMi = new System.Windows.Forms.ColumnHeader();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.gbRestoranDuzen = new System.Windows.Forms.GroupBox();
-            this.btnKaydetDuzen = new System.Windows.Forms.Button();
-            this.numericUpDown7 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown4 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown6 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown5 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.checkBox6 = new System.Windows.Forms.CheckBox();
-            this.checkBox5 = new System.Windows.Forms.CheckBox();
-            this.checkBox4 = new System.Windows.Forms.CheckBox();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.btnBolumGuncelle = new System.Windows.Forms.Button();
+            this.btnBolumSil = new System.Windows.Forms.Button();
+            this.btnBolumEkle = new System.Windows.Forms.Button();
+            this.lstBolumler = new System.Windows.Forms.ListBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnKaydetIletisim = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
@@ -86,45 +71,41 @@ namespace CafeDemo.Formlar
             this.txtTelefon = new System.Windows.Forms.MaskedTextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.txtRestoranAdi = new System.Windows.Forms.TextBox();
-            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
-            this.tabControl1.SuspendLayout();
+            this.restoranBolum1 = new CafeDemo.UserControls.RestoranBolum();
+            this.btnEkle.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgUrun)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudFiyat)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbUrun)).BeginInit();
             this.btnResim.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgKategori)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbKategori)).BeginInit();
             this.tabPage3.SuspendLayout();
             this.gbRestoranDuzen.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
-            // tabControl1
+            // btnEkle
             // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.btnResim);
-            this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tabControl1.Location = new System.Drawing.Point(0, 0);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1244, 535);
-            this.tabControl1.TabIndex = 0;
+            this.btnEkle.Controls.Add(this.tabPage1);
+            this.btnEkle.Controls.Add(this.btnResim);
+            this.btnEkle.Controls.Add(this.tabPage3);
+            this.btnEkle.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnEkle.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnEkle.Location = new System.Drawing.Point(0, 0);
+            this.btnEkle.Name = "btnEkle";
+            this.btnEkle.SelectedIndex = 0;
+            this.btnEkle.Size = new System.Drawing.Size(1244, 535);
+            this.btnEkle.TabIndex = 0;
             // 
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.Color.Beige;
             this.tabPage1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.tabPage1.Controls.Add(this.numericUpDown1);
+            this.tabPage1.Controls.Add(this.dgUrun);
+            this.tabPage1.Controls.Add(this.nudFiyat);
             this.tabPage1.Controls.Add(this.label6);
             this.tabPage1.Controls.Add(this.Kategorisi);
             this.tabPage1.Controls.Add(this.cmbKategorisi);
@@ -136,7 +117,6 @@ namespace CafeDemo.Formlar
             this.tabPage1.Controls.Add(this.btnUrunSil);
             this.tabPage1.Controls.Add(this.btnUrunResim);
             this.tabPage1.Controls.Add(this.btnUrunEkle);
-            this.tabPage1.Controls.Add(this.listUrun);
             this.tabPage1.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tabPage1.Location = new System.Drawing.Point(4, 46);
             this.tabPage1.Name = "tabPage1";
@@ -145,12 +125,27 @@ namespace CafeDemo.Formlar
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "     Ürün Ekle    ";
             // 
-            // numericUpDown1
+            // dgUrun
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(209, 139);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(229, 43);
-            this.numericUpDown1.TabIndex = 18;
+            this.dgUrun.AllowUserToAddRows = false;
+            this.dgUrun.AllowUserToDeleteRows = false;
+            this.dgUrun.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgUrun.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgUrun.Location = new System.Drawing.Point(521, 30);
+            this.dgUrun.MultiSelect = false;
+            this.dgUrun.Name = "dgUrun";
+            this.dgUrun.RowTemplate.Height = 25;
+            this.dgUrun.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgUrun.Size = new System.Drawing.Size(483, 300);
+            this.dgUrun.TabIndex = 19;
+            this.dgUrun.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgUrun_CellClick);
+            // 
+            // nudFiyat
+            // 
+            this.nudFiyat.Location = new System.Drawing.Point(209, 139);
+            this.nudFiyat.Name = "nudFiyat";
+            this.nudFiyat.Size = new System.Drawing.Size(229, 43);
+            this.nudFiyat.TabIndex = 18;
             // 
             // label6
             // 
@@ -228,6 +223,7 @@ namespace CafeDemo.Formlar
             this.btnUrunGuncelle.Text = "Güncelle";
             this.btnUrunGuncelle.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnUrunGuncelle.UseVisualStyleBackColor = false;
+            this.btnUrunGuncelle.Click += new System.EventHandler(this.btnUrunGuncelle_Click);
             // 
             // ımageList1
             // 
@@ -255,6 +251,7 @@ namespace CafeDemo.Formlar
             this.btnUrunSil.Text = "Sil";
             this.btnUrunSil.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnUrunSil.UseVisualStyleBackColor = false;
+            this.btnUrunSil.Click += new System.EventHandler(this.btnUrunSil_Click);
             // 
             // btnUrunResim
             // 
@@ -284,44 +281,11 @@ namespace CafeDemo.Formlar
             this.btnUrunEkle.Text = "Ekle";
             this.btnUrunEkle.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnUrunEkle.UseVisualStyleBackColor = false;
-            // 
-            // listUrun
-            // 
-            this.listUrun.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.clmnUrunAdi,
-            this.clmnKategorisi,
-            this.clmnFiyati,
-            this.clmnAktifMi});
-            this.listUrun.HideSelection = false;
-            this.listUrun.Location = new System.Drawing.Point(463, 30);
-            this.listUrun.Name = "listUrun";
-            this.listUrun.Size = new System.Drawing.Size(513, 299);
-            this.listUrun.TabIndex = 0;
-            this.listUrun.UseCompatibleStateImageBehavior = false;
-            this.listUrun.View = System.Windows.Forms.View.Details;
-            // 
-            // clmnUrunAdi
-            // 
-            this.clmnUrunAdi.Text = "Ürün Adı";
-            this.clmnUrunAdi.Width = 150;
-            // 
-            // clmnKategorisi
-            // 
-            this.clmnKategorisi.Text = "Kategorisi";
-            this.clmnKategorisi.Width = 150;
-            // 
-            // clmnFiyati
-            // 
-            this.clmnFiyati.Text = "Fiyatı";
-            this.clmnFiyati.Width = 100;
-            // 
-            // clmnAktifMi
-            // 
-            this.clmnAktifMi.Text = "Durum";
-            this.clmnAktifMi.Width = 100;
+            this.btnUrunEkle.Click += new System.EventHandler(this.btnUrunEkle_Click);
             // 
             // btnResim
             // 
+            this.btnResim.Controls.Add(this.dgKategori);
             this.btnResim.Controls.Add(this.pbKategori);
             this.btnResim.Controls.Add(this.cbKategoriAktifMi);
             this.btnResim.Controls.Add(this.txtKategoriAdi);
@@ -330,7 +294,6 @@ namespace CafeDemo.Formlar
             this.btnResim.Controls.Add(this.btnKategoriSil);
             this.btnResim.Controls.Add(this.btnKategoriResim);
             this.btnResim.Controls.Add(this.btnKategoriEkle);
-            this.btnResim.Controls.Add(this.listKategori);
             this.btnResim.Location = new System.Drawing.Point(4, 46);
             this.btnResim.Name = "btnResim";
             this.btnResim.Padding = new System.Windows.Forms.Padding(3);
@@ -338,6 +301,21 @@ namespace CafeDemo.Formlar
             this.btnResim.TabIndex = 1;
             this.btnResim.Text = "    Kategori Ekle    ";
             this.btnResim.UseVisualStyleBackColor = true;
+            // 
+            // dgKategori
+            // 
+            this.dgKategori.AllowUserToAddRows = false;
+            this.dgKategori.AllowUserToDeleteRows = false;
+            this.dgKategori.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgKategori.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgKategori.Location = new System.Drawing.Point(497, 56);
+            this.dgKategori.MultiSelect = false;
+            this.dgKategori.Name = "dgKategori";
+            this.dgKategori.RowTemplate.Height = 25;
+            this.dgKategori.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgKategori.Size = new System.Drawing.Size(556, 307);
+            this.dgKategori.TabIndex = 7;
+            this.dgKategori.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgKategori_CellClick);
             // 
             // pbKategori
             // 
@@ -388,6 +366,7 @@ namespace CafeDemo.Formlar
             this.btnKategoriGuncelle.Text = "Güncelle";
             this.btnKategoriGuncelle.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnKategoriGuncelle.UseVisualStyleBackColor = false;
+            this.btnKategoriGuncelle.Click += new System.EventHandler(this.btnKategoriGuncelle_Click);
             // 
             // btnKategoriSil
             // 
@@ -402,6 +381,7 @@ namespace CafeDemo.Formlar
             this.btnKategoriSil.Text = "Sil";
             this.btnKategoriSil.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnKategoriSil.UseVisualStyleBackColor = false;
+            this.btnKategoriSil.Click += new System.EventHandler(this.btnKategoriSil_Click);
             // 
             // btnKategoriResim
             // 
@@ -431,29 +411,7 @@ namespace CafeDemo.Formlar
             this.btnKategoriEkle.Text = "Ekle";
             this.btnKategoriEkle.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnKategoriEkle.UseVisualStyleBackColor = false;
-            // 
-            // listKategori
-            // 
-            this.listKategori.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.KategoriAdi,
-            this.AktifMi});
-            this.listKategori.HideSelection = false;
-            this.listKategori.Location = new System.Drawing.Point(496, 78);
-            this.listKategori.Name = "listKategori";
-            this.listKategori.Size = new System.Drawing.Size(496, 258);
-            this.listKategori.TabIndex = 1;
-            this.listKategori.UseCompatibleStateImageBehavior = false;
-            this.listKategori.View = System.Windows.Forms.View.Details;
-            // 
-            // KategoriAdi
-            // 
-            this.KategoriAdi.Text = "Kategori Adı";
-            this.KategoriAdi.Width = 200;
-            // 
-            // AktifMi
-            // 
-            this.AktifMi.Text = "Aktiflik Durumu";
-            this.AktifMi.Width = 200;
+            this.btnKategoriEkle.Click += new System.EventHandler(this.btnKategoriEkle_Click);
             // 
             // tabPage3
             // 
@@ -469,19 +427,11 @@ namespace CafeDemo.Formlar
             // 
             // gbRestoranDuzen
             // 
-            this.gbRestoranDuzen.Controls.Add(this.btnKaydetDuzen);
-            this.gbRestoranDuzen.Controls.Add(this.numericUpDown7);
-            this.gbRestoranDuzen.Controls.Add(this.numericUpDown4);
-            this.gbRestoranDuzen.Controls.Add(this.numericUpDown6);
-            this.gbRestoranDuzen.Controls.Add(this.numericUpDown3);
-            this.gbRestoranDuzen.Controls.Add(this.numericUpDown5);
-            this.gbRestoranDuzen.Controls.Add(this.numericUpDown2);
-            this.gbRestoranDuzen.Controls.Add(this.checkBox2);
-            this.gbRestoranDuzen.Controls.Add(this.checkBox6);
-            this.gbRestoranDuzen.Controls.Add(this.checkBox5);
-            this.gbRestoranDuzen.Controls.Add(this.checkBox4);
-            this.gbRestoranDuzen.Controls.Add(this.checkBox3);
-            this.gbRestoranDuzen.Controls.Add(this.checkBox1);
+            this.gbRestoranDuzen.Controls.Add(this.restoranBolum1);
+            this.gbRestoranDuzen.Controls.Add(this.btnBolumGuncelle);
+            this.gbRestoranDuzen.Controls.Add(this.btnBolumSil);
+            this.gbRestoranDuzen.Controls.Add(this.btnBolumEkle);
+            this.gbRestoranDuzen.Controls.Add(this.lstBolumler);
             this.gbRestoranDuzen.Location = new System.Drawing.Point(591, 18);
             this.gbRestoranDuzen.Name = "gbRestoranDuzen";
             this.gbRestoranDuzen.Size = new System.Drawing.Size(607, 442);
@@ -489,132 +439,58 @@ namespace CafeDemo.Formlar
             this.gbRestoranDuzen.TabStop = false;
             this.gbRestoranDuzen.Text = "Restoran Düzeni";
             // 
-            // btnKaydetDuzen
+            // btnBolumGuncelle
             // 
-            this.btnKaydetDuzen.BackColor = System.Drawing.Color.White;
-            this.btnKaydetDuzen.ImageKey = "xcvxc.jpg";
-            this.btnKaydetDuzen.ImageList = this.ımageList1;
-            this.btnKaydetDuzen.Location = new System.Drawing.Point(220, 343);
-            this.btnKaydetDuzen.Name = "btnKaydetDuzen";
-            this.btnKaydetDuzen.Size = new System.Drawing.Size(171, 75);
-            this.btnKaydetDuzen.TabIndex = 6;
-            this.btnKaydetDuzen.Text = "Kaydet";
-            this.btnKaydetDuzen.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnKaydetDuzen.UseVisualStyleBackColor = false;
+            this.btnBolumGuncelle.BackColor = System.Drawing.Color.White;
+            this.btnBolumGuncelle.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBolumGuncelle.ImageKey = "güncelle.png";
+            this.btnBolumGuncelle.ImageList = this.ımageList1;
+            this.btnBolumGuncelle.Location = new System.Drawing.Point(383, 343);
+            this.btnBolumGuncelle.Name = "btnBolumGuncelle";
+            this.btnBolumGuncelle.Size = new System.Drawing.Size(175, 73);
+            this.btnBolumGuncelle.TabIndex = 9;
+            this.btnBolumGuncelle.Text = "Güncelle";
+            this.btnBolumGuncelle.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnBolumGuncelle.UseVisualStyleBackColor = false;
             // 
-            // numericUpDown7
+            // btnBolumSil
             // 
-            this.numericUpDown7.Enabled = false;
-            this.numericUpDown7.Location = new System.Drawing.Point(516, 231);
-            this.numericUpDown7.Name = "numericUpDown7";
-            this.numericUpDown7.Size = new System.Drawing.Size(76, 43);
-            this.numericUpDown7.TabIndex = 1;
+            this.btnBolumSil.BackColor = System.Drawing.Color.White;
+            this.btnBolumSil.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBolumSil.ImageKey = "ghfgh.png";
+            this.btnBolumSil.ImageList = this.ımageList1;
+            this.btnBolumSil.Location = new System.Drawing.Point(243, 343);
+            this.btnBolumSil.Name = "btnBolumSil";
+            this.btnBolumSil.Size = new System.Drawing.Size(109, 73);
+            this.btnBolumSil.TabIndex = 10;
+            this.btnBolumSil.Text = "Sil";
+            this.btnBolumSil.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnBolumSil.UseVisualStyleBackColor = false;
             // 
-            // numericUpDown4
+            // btnBolumEkle
             // 
-            this.numericUpDown4.Enabled = false;
-            this.numericUpDown4.Location = new System.Drawing.Point(224, 231);
-            this.numericUpDown4.Name = "numericUpDown4";
-            this.numericUpDown4.Size = new System.Drawing.Size(76, 43);
-            this.numericUpDown4.TabIndex = 1;
+            this.btnBolumEkle.BackColor = System.Drawing.Color.White;
+            this.btnBolumEkle.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBolumEkle.ImageKey = "gfnfgn.jpg";
+            this.btnBolumEkle.ImageList = this.ımageList1;
+            this.btnBolumEkle.Location = new System.Drawing.Point(84, 343);
+            this.btnBolumEkle.Name = "btnBolumEkle";
+            this.btnBolumEkle.Size = new System.Drawing.Size(131, 73);
+            this.btnBolumEkle.TabIndex = 11;
+            this.btnBolumEkle.Text = "Ekle";
+            this.btnBolumEkle.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnBolumEkle.UseVisualStyleBackColor = false;
+            this.btnBolumEkle.Click += new System.EventHandler(this.btnBolumEkle_Click);
             // 
-            // numericUpDown6
+            // lstBolumler
             // 
-            this.numericUpDown6.Enabled = false;
-            this.numericUpDown6.Location = new System.Drawing.Point(516, 159);
-            this.numericUpDown6.Name = "numericUpDown6";
-            this.numericUpDown6.Size = new System.Drawing.Size(76, 43);
-            this.numericUpDown6.TabIndex = 1;
-            // 
-            // numericUpDown3
-            // 
-            this.numericUpDown3.Enabled = false;
-            this.numericUpDown3.Location = new System.Drawing.Point(224, 159);
-            this.numericUpDown3.Name = "numericUpDown3";
-            this.numericUpDown3.Size = new System.Drawing.Size(76, 43);
-            this.numericUpDown3.TabIndex = 1;
-            // 
-            // numericUpDown5
-            // 
-            this.numericUpDown5.Enabled = false;
-            this.numericUpDown5.Location = new System.Drawing.Point(516, 87);
-            this.numericUpDown5.Name = "numericUpDown5";
-            this.numericUpDown5.Size = new System.Drawing.Size(76, 43);
-            this.numericUpDown5.TabIndex = 1;
-            // 
-            // numericUpDown2
-            // 
-            this.numericUpDown2.Enabled = false;
-            this.numericUpDown2.Location = new System.Drawing.Point(224, 87);
-            this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(76, 43);
-            this.numericUpDown2.TabIndex = 1;
-            // 
-            // checkBox2
-            // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(23, 161);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(95, 41);
-            this.checkBox2.TabIndex = 0;
-            this.checkBox2.Text = "Teras";
-            this.checkBox2.UseVisualStyleBackColor = true;
-            this.checkBox2.CheckedChanged += new System.EventHandler(this.checkBox2_CheckedChanged);
-            // 
-            // checkBox6
-            // 
-            this.checkBox6.AutoSize = true;
-            this.checkBox6.Location = new System.Drawing.Point(347, 233);
-            this.checkBox6.Name = "checkBox6";
-            this.checkBox6.Size = new System.Drawing.Size(103, 41);
-            this.checkBox6.TabIndex = 0;
-            this.checkBox6.Text = "3. Kat";
-            this.checkBox6.UseVisualStyleBackColor = true;
-            this.checkBox6.CheckedChanged += new System.EventHandler(this.checkBox6_CheckedChanged);
-            // 
-            // checkBox5
-            // 
-            this.checkBox5.AutoSize = true;
-            this.checkBox5.Location = new System.Drawing.Point(347, 159);
-            this.checkBox5.Name = "checkBox5";
-            this.checkBox5.Size = new System.Drawing.Size(103, 41);
-            this.checkBox5.TabIndex = 0;
-            this.checkBox5.Text = "2. Kat";
-            this.checkBox5.UseVisualStyleBackColor = true;
-            this.checkBox5.CheckedChanged += new System.EventHandler(this.checkBox5_CheckedChanged);
-            // 
-            // checkBox4
-            // 
-            this.checkBox4.AutoSize = true;
-            this.checkBox4.Location = new System.Drawing.Point(347, 89);
-            this.checkBox4.Name = "checkBox4";
-            this.checkBox4.Size = new System.Drawing.Size(96, 41);
-            this.checkBox4.TabIndex = 0;
-            this.checkBox4.Text = "1.Kat";
-            this.checkBox4.UseVisualStyleBackColor = true;
-            this.checkBox4.CheckedChanged += new System.EventHandler(this.checkBox4_CheckedChanged);
-            // 
-            // checkBox3
-            // 
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.Location = new System.Drawing.Point(23, 231);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(156, 41);
-            this.checkBox3.TabIndex = 0;
-            this.checkBox3.Text = "Zemin Kat";
-            this.checkBox3.UseVisualStyleBackColor = true;
-            this.checkBox3.CheckedChanged += new System.EventHandler(this.checkBox3_CheckedChanged);
-            // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(23, 89);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(106, 41);
-            this.checkBox1.TabIndex = 0;
-            this.checkBox1.Text = "Bahçe";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            this.lstBolumler.FormattingEnabled = true;
+            this.lstBolumler.ItemHeight = 37;
+            this.lstBolumler.Location = new System.Drawing.Point(399, 89);
+            this.lstBolumler.Name = "lstBolumler";
+            this.lstBolumler.Size = new System.Drawing.Size(187, 189);
+            this.lstBolumler.TabIndex = 8;
+            this.lstBolumler.SelectedIndexChanged += new System.EventHandler(this.lstBolumler_SelectedIndexChanged);
             // 
             // groupBox1
             // 
@@ -644,6 +520,7 @@ namespace CafeDemo.Formlar
             this.btnKaydetIletisim.Text = "Kaydet";
             this.btnKaydetIletisim.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnKaydetIletisim.UseVisualStyleBackColor = false;
+            this.btnKaydetIletisim.Click += new System.EventHandler(this.btnKaydetIletisim_Click);
             // 
             // label3
             // 
@@ -694,13 +571,19 @@ namespace CafeDemo.Formlar
             this.txtRestoranAdi.Size = new System.Drawing.Size(201, 43);
             this.txtRestoranAdi.TabIndex = 3;
             // 
-            // errorProvider1
-            // 
-            this.errorProvider1.ContainerControl = this;
-            // 
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
+            // 
+            // restoranBolum1
+            // 
+            this.restoranBolum1.BolumAdi = "";
+            this.restoranBolum1.Durum = false;
+            this.restoranBolum1.Location = new System.Drawing.Point(63, 89);
+            this.restoranBolum1.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
+            this.restoranBolum1.Name = "restoranBolum1";
+            this.restoranBolum1.Size = new System.Drawing.Size(300, 208);
+            this.restoranBolum1.TabIndex = 12;
             // 
             // FrmAyarlar
             // 
@@ -709,46 +592,37 @@ namespace CafeDemo.Formlar
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1244, 535);
             this.ControlBox = false;
-            this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.btnEkle);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FrmAyarlar";
             this.Text = "FrmAyarlar";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.tabControl1.ResumeLayout(false);
+            this.btnEkle.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgUrun)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudFiyat)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbUrun)).EndInit();
             this.btnResim.ResumeLayout(false);
             this.btnResim.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgKategori)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbKategori)).EndInit();
             this.tabPage3.ResumeLayout(false);
             this.gbRestoranDuzen.ResumeLayout(false);
-            this.gbRestoranDuzen.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabControl btnEkle;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage btnResim;
         private System.Windows.Forms.TabPage tabPage3;
-        private System.Windows.Forms.ListView listKategori;
-        private System.Windows.Forms.ColumnHeader KategoriAdi;
-        private System.Windows.Forms.ColumnHeader AktifMi;
         private System.Windows.Forms.TextBox txtKategoriAdi;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnKategoriGuncelle;
@@ -756,7 +630,6 @@ namespace CafeDemo.Formlar
         private System.Windows.Forms.Button btnKategoriEkle;
         private System.Windows.Forms.PictureBox pbKategori;
         private System.Windows.Forms.CheckBox cbKategoriAktifMi;
-        private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.PictureBox pbUrun;
         private System.Windows.Forms.CheckBox cbUrunAktifMi;
         private System.Windows.Forms.TextBox txtUrunAdi;
@@ -764,17 +637,12 @@ namespace CafeDemo.Formlar
         private System.Windows.Forms.Button btnUrunGuncelle;
         private System.Windows.Forms.Button btnUrunSil;
         private System.Windows.Forms.Button btnUrunEkle;
-        private System.Windows.Forms.ListView listUrun;
-        private System.Windows.Forms.ColumnHeader clmnUrunAdi;
-        private System.Windows.Forms.ColumnHeader clmnKategorisi;
-        private System.Windows.Forms.ColumnHeader clmnFiyati;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.NumericUpDown nudFiyat;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label Kategorisi;
         private System.Windows.Forms.ComboBox cmbKategorisi;
         private System.Windows.Forms.Button btnUrunResim;
-        private System.Windows.Forms.ColumnHeader clmnAktifMi;
         private System.Windows.Forms.Button btnKategoriResim;
         private System.Windows.Forms.RichTextBox txtAdres;
         private System.Windows.Forms.MaskedTextBox txtTelefon;
@@ -785,20 +653,14 @@ namespace CafeDemo.Formlar
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button btnKaydetIletisim;
         private System.Windows.Forms.GroupBox gbRestoranDuzen;
-        private System.Windows.Forms.NumericUpDown numericUpDown2;
-        private System.Windows.Forms.CheckBox checkBox2;
-        private System.Windows.Forms.CheckBox checkBox5;
-        private System.Windows.Forms.CheckBox checkBox4;
-        private System.Windows.Forms.CheckBox checkBox3;
-        private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.Button btnKaydetDuzen;
-        private System.Windows.Forms.NumericUpDown numericUpDown7;
-        private System.Windows.Forms.NumericUpDown numericUpDown4;
-        private System.Windows.Forms.NumericUpDown numericUpDown6;
-        private System.Windows.Forms.NumericUpDown numericUpDown3;
-        private System.Windows.Forms.NumericUpDown numericUpDown5;
-        private System.Windows.Forms.CheckBox checkBox6;
         private System.Drawing.Printing.PrintDocument printDocument1;
         private System.Windows.Forms.ImageList ımageList1;
+        private System.Windows.Forms.DataGridView dgUrun;
+        private System.Windows.Forms.DataGridView dgKategori;
+        private System.Windows.Forms.Button btnBolumGuncelle;
+        private System.Windows.Forms.Button btnBolumSil;
+        private System.Windows.Forms.Button btnBolumEkle;
+        private System.Windows.Forms.ListBox lstBolumler;
+        private UserControls.RestoranBolum restoranBolum1;
     }
 }

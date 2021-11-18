@@ -8,7 +8,11 @@ namespace CafeDemoLib.Sınıflar
 {
     public class Kategori
     {
-        public int KategoriId { get; set; }
+        public Kategori()
+        {
+            KategoriId = Guid.NewGuid().ToString();
+        }
+        public string KategoriId { get; set; }
         public string Adi { get; set; }
         public byte[] Resim { get; set; }
         public bool Durum { get; set; }
