@@ -16,7 +16,6 @@ namespace CafeOtomasyonuApp.Formlar
         }
 
         private Button seciliKategoriButonu;
-        private Button seciliSiparisButonu;
 
         private List<SiparisDetay> Siparisler = new List<SiparisDetay>();
         public int masaNumarası;
@@ -37,21 +36,21 @@ namespace CafeOtomasyonuApp.Formlar
             Adi = "İçecekler",
             Durum = true
         };
-        
 
-        //private List<Urunler> _urunler = new List<Urunler>();
-        //Urunler urun1 = new Urunler()
-        //{
-        //    Kategori = "Çorbalar",
-        //    UrunAd = "Mercimek Çorbası",
-        //    BirimFiyat = 5
-            
-        //};
-        //Urunler urun2 = new Urunler()
-        //{
-        //    Kategori = "Çorbalar",
-        //    UrunAd = "Tavuk Çorbası",
-        //    BirimFiyat = 10
+
+        private List<Urunler> _urunler = new List<Urunler>();
+        Urunler urun1 = new Urunler()
+        {
+            Kategori = "Çorbalar",
+            UrunAd = "Mercimek Çorbası",
+            BirimFiyat = 5
+
+        };
+        Urunler urun2 = new Urunler()
+        {
+            Kategori = "Çorbalar",
+            UrunAd = "Tavuk Çorbası",
+            BirimFiyat = 10
 
         //};
         //Urunler urun3 = new Urunler()
@@ -72,13 +71,14 @@ namespace CafeOtomasyonuApp.Formlar
         private void FrmSiparis_Load(object sender, EventArgs e)
         {
             // kategori olusturma
-            //Kategoriler.Add(kategori1);
-            //Kategoriler.Add(kategori2);
-            //Kategoriler.Add(kategori3);
-            //_urunler.Add(urun1);
-            //_urunler.Add(urun2);
-            //_urunler.Add(urun3);
-            //_urunler.Add(urun4);
+            Kategoriler.Add(kategori1);
+            Kategoriler.Add(kategori2);
+            Kategoriler.Add(kategori3);
+            _urunler.Add(urun1);
+            _urunler.Add(urun2);
+            _urunler.Add(urun3);
+            _urunler.Add(urun4);
+            txtMasaNumarasi.Text = masaNumarası.ToString();
 
 
             int kategoriPanelWidth = flwLytPnlKategori.Width - 30;
@@ -98,46 +98,61 @@ namespace CafeOtomasyonuApp.Formlar
 
         }
 
-        //public void BtnKategori_Click(object sender, EventArgs e)
-        //{
-        //    foreach (Control control in flwLytYemekEkleme.Controls)
-        //    {
-        //        flwLytYemekEkleme.Controls.Remove(control);
-        //        control.Dispose();
-        //    }
-        //    seciliKategoriButonu = sender as Button;
-        //    int yemekPanelGenisligi = flwLytYemekEkleme.Width/3 - 15;
-        //    int yemekPanelUzunlugu = 120;
-        //    for (int i = 0; i < _urunler.Count; i++)
-        //    {
-        //        if (seciliKategoriButonu.Text != _urunler[i].Kategori)
-        //            continue;
-        //        BtnYemekSecme btnYemekSecme = new BtnYemekSecme();
-        //        btnYemekSecme.Name = "btn" + _urunler[i].UrunAd;
-        //        btnYemekSecme.Size = new Size(yemekPanelGenisligi, yemekPanelUzunlugu);
-        //        flwLytYemekEkleme.Controls.Add(btnYemekSecme);
-        //        btnYemekSecme.txtYemek.Text = _urunler[i].UrunAd;
-        //    }
-            
-        //}
-
-        private void BtnYemekSecme_Click(object sender, EventArgs e)
+        public void BtnKategori_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
-        }
+            this.flwLytYemekEkleme.Controls.Clear();
 
-        /*
-            BtnEklenenUrun btnEklenenUrun = new BtnEklenenUrun();
-            btnEklenenUrun.Size = new Size(flwLytYemekEklemeEkrani.Width-15, 45);
-            flwLytYemekEklemeEkrani.Controls.Add(btnEklenenUrun);
+            seciliKategoriButonu = sender as Button;
+
+            int yemekPanelGenisligi = flwLytYemekEkleme.Width / 3 - 15;
+            int yemekPanelUzunlugu = 120;
+
+            for (int i = 0; i < _urunler.Count; i++)
+            {
+                if (seciliKategoriButonu.Text != _urunler[i].Kategori)
+                    continue;
+                BtnYemekSecme btnYemekSecme = new BtnYemekSecme();
+                btnYemekSecme.Name = "btn" + _urunler[i].UrunAd;
+                btnYemekSecme.Size = new Size(yemekPanelGenisligi, yemekPanelUzunlugu);
+                flwLytYemekEkleme.Controls.Add(btnYemekSecme);
+                btnYemekSecme.YemekIsmi = _urunler[i].UrunAd;
+                btnYemekSecme.Fiyat = _urunler[i].BirimFiyat.ToString();
+                btnYemekSecme.btnYemekSiparis.Tag = _urunler[i];
+                btnYemekSecme.OrderClicked += BtnYemekSecme_OrderClicked;
+            }
+        }
+        decimal toplamTutar = 0;
+        public void BtnYemekSecme_OrderClicked(object sender, EventArgs e)
+        {
+            var secilenYemek = sender as Button;
+
+            // Tag ile butona ulaşma
+            //var seciliUrun = secilenYemek.Tag as Urunler;
+
+            //BtnEklenenUrun btnEklenenUrun = new BtnEklenenUrun();
+            //btnEklenenUrun.Size = new Size(flwLytYemekEklemeEkrani.Width - 30, 45);
+            //flwLytYemekEklemeEkrani.Controls.Add(btnEklenenUrun);
+            //btnEklenenUrun.BirimFiyat = secilenYemek.BirimFiyat;
+
+            //toplamTutar += btnEklenenUrun.Tutar;
+
+
+            for (int i = 0; i < _urunler.Count; i++)
+            {
+                if (secilenYemek.Text != _urunler[i].UrunAd)
+                    continue;
+                BtnEklenenUrun btnEklenenUrun = new BtnEklenenUrun();
+                btnEklenenUrun.Size = new Size(flwLytYemekEklemeEkrani.Width - 30, 45);
+                flwLytYemekEklemeEkrani.Controls.Add(btnEklenenUrun);
+                btnEklenenUrun.txtSiparisIsmi.Text = _urunler[i].UrunAd;
+                btnEklenenUrun.BirimFiyat = _urunler[i].BirimFiyat;
+                toplamTutar = toplamTutar + btnEklenenUrun.Tutar;
+            }
+
+            txtToplamTutar.Text = toplamTutar.ToString();
             
-            BtnEklenenUrun btnEklenenUrun2 = new BtnEklenenUrun();
-            btnEklenenUrun2.Size = new Size(flwLytYemekEklemeEkrani.Width - 15, 45);
-            btnEklenenUrun2.BackColor = Color.LightBlue;
-            flwLytYemekEklemeEkrani.Controls.Add(btnEklenenUrun2);            
-            // fis olusturma
-            // --------------------------------------------------------------------------
-        }*/
+            //btnEklenenUrun.txtSiparisIsmi.Text = secilenYemek.YemekIsmi;
+        }
 
 
     }

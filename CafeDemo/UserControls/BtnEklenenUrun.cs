@@ -12,49 +12,60 @@ namespace CafeOtomasyonuApp.UserControls
 {
     public partial class BtnEklenenUrun : UserControl
     {
+        public int _Adet;
         public BtnEklenenUrun()
         {
+            
             InitializeComponent();
+            _Adet = 1;
+            txtUrunAdet.Text = _Adet.ToString();
         }
 
-        private void btnYemekAdetArttir_Click(object sender, EventArgs e)
+        public string SiparisIsmi
         {
-
+            get => txtSiparisIsmi.Text;
+            set => txtSiparisIsmi.Text = value;
         }
 
-        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        public decimal BirimFiyat { get; set; }        
+        public int Adet
         {
-
+            get
+            {
+                return _Adet;
+            }
+        }
+        public decimal _Tutar; 
+        public decimal Tutar
+        {
+            get
+            {
+                return _Tutar = BirimFiyat * _Adet;
+            }
         }
 
-        private void btnYemekAdetAzalt_Click(object sender, EventArgs e)
+        public decimal ToplamTutar { get; set; }
+        public void btnYemekAdetArttir_Click(object sender, EventArgs e)
         {
-
+            _Adet++;
+            txtUrunAdet.Text = _Adet.ToString();
+            txtUrunToplamTutar.Text = Tutar.ToString();
         }
 
-        private void txtYemekAdet_Click(object sender, EventArgs e)
+        public void btnYemekAdetAzalt_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void txtYemekIsmi_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtYemekTutari_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnYemekSil_Click(object sender, EventArgs e)
-        {
-
+            if (Adet > 1)
+            {
+                _Adet--;
+                txtUrunAdet.Text = _Adet.ToString();
+                txtUrunToplamTutar.Text = Tutar.ToString();
+            }
+            //else if(Adet == 0)
+            //{
+            //    this.Control
+            //}
+            else return;
+            
         }
     }
 }

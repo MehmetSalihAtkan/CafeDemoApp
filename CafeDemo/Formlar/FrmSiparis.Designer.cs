@@ -32,10 +32,10 @@ namespace CafeOtomasyonuApp.Formlar
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmSiparis));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.flwLytPnlKategori = new System.Windows.Forms.FlowLayoutPanel();
+            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
+            this.txtMasa = new System.Windows.Forms.Label();
+            this.txtMasaNumarasi = new System.Windows.Forms.Label();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
             this.flwLytYemekEkleme = new System.Windows.Forms.FlowLayoutPanel();
@@ -91,8 +91,8 @@ namespace CafeOtomasyonuApp.Formlar
             // 
             this.tableLayoutPanel3.ColumnCount = 1;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel5, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.flwLytPnlKategori, 0, 1);
+            this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel5, 0, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
@@ -102,45 +102,6 @@ namespace CafeOtomasyonuApp.Formlar
             this.tableLayoutPanel3.Size = new System.Drawing.Size(175, 585);
             this.tableLayoutPanel3.TabIndex = 0;
             // 
-            // tableLayoutPanel5
-            // 
-            this.tableLayoutPanel5.ColumnCount = 1;
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel5.Controls.Add(this.label3, 0, 1);
-            this.tableLayoutPanel5.Controls.Add(this.label4, 0, 0);
-            this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel5.Location = new System.Drawing.Point(3, 3);
-            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
-            this.tableLayoutPanel5.RowCount = 2;
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 75F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(169, 81);
-            this.tableLayoutPanel5.TabIndex = 4;
-            // 
-            // label3
-            // 
-            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(57, 20);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(54, 61);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "1";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(3, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(163, 20);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "MASA";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // flwLytPnlKategori
             // 
             this.flwLytPnlKategori.AutoScroll = true;
@@ -149,6 +110,47 @@ namespace CafeOtomasyonuApp.Formlar
             this.flwLytPnlKategori.Name = "flwLytPnlKategori";
             this.flwLytPnlKategori.Size = new System.Drawing.Size(169, 492);
             this.flwLytPnlKategori.TabIndex = 3;
+            // 
+            // tableLayoutPanel5
+            // 
+            this.tableLayoutPanel5.ColumnCount = 2;
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 15F));
+            this.tableLayoutPanel5.Controls.Add(this.txtMasa, 0, 0);
+            this.tableLayoutPanel5.Controls.Add(this.txtMasaNumarasi, 0, 1);
+            this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
+            this.tableLayoutPanel5.RowCount = 2;
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60.49383F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 39.50617F));
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(169, 81);
+            this.tableLayoutPanel5.TabIndex = 1;
+            // 
+            // txtMasa
+            // 
+            this.txtMasa.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtMasa.AutoSize = true;
+            this.txtMasa.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtMasa.Location = new System.Drawing.Point(3, 19);
+            this.txtMasa.Name = "txtMasa";
+            this.txtMasa.Size = new System.Drawing.Size(148, 30);
+            this.txtMasa.TabIndex = 0;
+            this.txtMasa.Text = "MASA";
+            this.txtMasa.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // txtMasaNumarasi
+            // 
+            this.txtMasaNumarasi.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtMasaNumarasi.AutoSize = true;
+            this.txtMasaNumarasi.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtMasaNumarasi.Location = new System.Drawing.Point(3, 50);
+            this.txtMasaNumarasi.Name = "txtMasaNumarasi";
+            this.txtMasaNumarasi.Size = new System.Drawing.Size(148, 30);
+            this.txtMasaNumarasi.TabIndex = 1;
+            this.txtMasaNumarasi.Text = "1";
+            this.txtMasaNumarasi.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tableLayoutPanel6
             // 
@@ -486,9 +488,6 @@ namespace CafeOtomasyonuApp.Formlar
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.FlowLayoutPanel flwLytPnlKategori;
         private System.Windows.Forms.Label txtMasaNo;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
@@ -512,5 +511,8 @@ namespace CafeOtomasyonuApp.Formlar
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label txtToplamTutar;
         private System.Windows.Forms.FlowLayoutPanel flwLytYemekEklemeEkrani;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
+        private System.Windows.Forms.Label txtMasa;
+        private System.Windows.Forms.Label txtMasaNumarasi;
     }
 }
