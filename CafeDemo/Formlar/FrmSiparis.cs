@@ -8,6 +8,8 @@ using System.Windows.Forms;
 
 namespace CafeOtomasyonuApp.Formlar
 {
+
+
     public partial class FrmSiparis : Form
     {
         public FrmSiparis()
@@ -94,7 +96,7 @@ namespace CafeOtomasyonuApp.Formlar
                 btnKategori.Text = Kategoriler[i].Adi;
                 btnKategori.Size = new Size(kategoriPanelWidth, kategoriPanelHeight);
                 flwLytPnlKategori.Controls.Add(btnKategori);
-                //btnKategori.Click += BtnKategori_Click; // siparis adeti girme
+                btnKategori.Click += BtnKategori_Click; // siparis adeti girme
             }
 
         }
@@ -118,7 +120,7 @@ namespace CafeOtomasyonuApp.Formlar
                 flwLytYemekEkleme.Controls.Add(btnYemekSecme);
                 btnYemekSecme.YemekIsmi = _urunler[i].UrunAdi;
                 btnYemekSecme.Fiyat = _urunler[i].BirimFiyat.ToString();
-                btnYemekSecme.btnYemekSiparis.Tag = _urunler[i];
+                //  btnYemekSecme.btnYemekSiparis.Tag = _urunler[i];
                 btnYemekSecme.OrderClicked += BtnYemekSecme_OrderClicked;
             }
         }
@@ -126,18 +128,6 @@ namespace CafeOtomasyonuApp.Formlar
         public void BtnYemekSecme_OrderClicked(object sender, EventArgs e)
         {
             var secilenYemek = sender as Button;
-
-            // Tag ile butona ulaşma
-            //var seciliUrun = secilenYemek.Tag as Urunler;
-
-            //BtnEklenenUrun btnEklenenUrun = new BtnEklenenUrun();
-            //btnEklenenUrun.Size = new Size(flwLytYemekEklemeEkrani.Width - 30, 45);
-            //flwLytYemekEklemeEkrani.Controls.Add(btnEklenenUrun);
-            //btnEklenenUrun.BirimFiyat = secilenYemek.BirimFiyat;
-
-            //toplamTutar += btnEklenenUrun.Tutar;
-
-
             for (int i = 0; i < _urunler.Count; i++)
             {
                 if (secilenYemek.Text != _urunler[i].UrunAdi)
@@ -145,15 +135,36 @@ namespace CafeOtomasyonuApp.Formlar
                 BtnEklenenUrun btnYeniUrun = new BtnEklenenUrun();
                 btnYeniUrun.Size = new Size(flwLytYemekEklemeEkrani.Width - 30, 45);
                 flwLytYemekEklemeEkrani.Controls.Add(btnYeniUrun);
-                btnYeniUrun.txtSiparisIsmi.Text = _urunler[i].UrunAd;
+                btnYeniUrun.txtSiparisIsmi.Text = _urunler[i].UrunAdi;
                 btnYeniUrun.BirimFiyat = _urunler[i].BirimFiyat;
                 btnYeniUrun.txtUrunToplamTutar.Text = (_urunler[i].BirimFiyat * btnYeniUrun.Adet).ToString();
-
+                btnYeniUrun.ArttirClicked += BtnYeniUrun_ArttirClicked;
+                btnYeniUrun.AzaltClicked += BtnYeniUrun_AzaltClicked;
+                toplamTutar += int.Parse(btnYeniUrun.txtUrunToplamTutar.Text);
             }
+            ToplamHesapla();
+        }
 
+        private void BtnYeniUrun_ArttirClicked(object sender, EventArgs e)
+        {
+            ToplamHesapla();
+
+        }
+
+        private void ToplamHesapla()
+        {
+            decimal total = 0;
+            foreach (BtnEklenenUrun item in flwLytYemekEklemeEkrani.Controls)
+            {
+                total += item.ToplamTutar;
+            }
+            toplamTutar = total;
             txtToplamTutar.Text = toplamTutar.ToString();
+        }
 
-            //btnEklenenUrun.txtSiparisIsmi.Text = secilenYemek.YemekIsmi;
+        private void BtnYeniUrun_AzaltClicked(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
         }
     }
 }
