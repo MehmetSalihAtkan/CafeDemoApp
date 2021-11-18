@@ -3,9 +3,9 @@ using System;
 
 namespace CafeDemoLib.Sınıflar
 {
-    public class UrunAyar
+    public class Urun
     {
-        public UrunAyar()
+        public Urun()
         {
             UrunId= Guid.NewGuid().ToString();
         }

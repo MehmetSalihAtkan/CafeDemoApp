@@ -1,4 +1,5 @@
 ﻿using CafeDemo.Formlar;
+using CafeDemoLib.Models;
 using CafeOtomasyonuApp.Formlar;
 using System;
 using System.Collections.Generic;
@@ -62,6 +63,11 @@ namespace CafeDemo
             if (Application.OpenForms["FrmAyarlar"] != null)
                 _frmAyarlar.Close();
             _frmRaporlar.Show();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+           
         }
     }
 }

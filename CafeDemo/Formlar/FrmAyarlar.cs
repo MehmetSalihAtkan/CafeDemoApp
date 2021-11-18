@@ -58,7 +58,7 @@ namespace CafeDemo.Formlar
         private void btnUrunEkle_Click(object sender, EventArgs e)
         {
             string urunAd = txtUrunAdi.Text.Trim();
-            UrunAyar yeniUrun = new UrunAyar()
+            Urun yeniUrun = new Urun()
             {
                 UrunAdi = urunAd,
                 BirimFiyat = nudFiyat.Value,
@@ -75,6 +75,7 @@ namespace CafeDemo.Formlar
             }
             AyarlarContext.Urunler.Add(yeniUrun);
             UrunDoldur();
+            UrunTemizle();
         }
 
         private void UrunDoldur()
@@ -84,13 +85,13 @@ namespace CafeDemo.Formlar
             dgUrun.Columns["UrunId"].Visible = false;
         }
 
-        private UrunAyar _seciliUrun;
+        private Urun _seciliUrun;
         private void dgUrun_CellClick(object sender, DataGridViewCellEventArgs e)
         {
 
             string deger = dgUrun.CurrentRow.Cells["UrunId"].Value.ToString();
 
-            _seciliUrun = AyarlarContext.Urunler.Where(x => x.UrunId == deger).First() as UrunAyar;
+            _seciliUrun = AyarlarContext.Urunler.Where(x => x.UrunId == deger).First() as Urun;
             txtUrunAdi.Text = _seciliUrun.UrunAdi;
             cmbKategorisi.Text = _seciliUrun.Kategori;
             nudFiyat.Value = _seciliUrun.BirimFiyat;
@@ -126,7 +127,7 @@ namespace CafeDemo.Formlar
             }
 
             UrunDoldur();
-
+            UrunTemizle()
         }
 
         private void btnUrunSil_Click(object sender, EventArgs e)
@@ -135,10 +136,11 @@ namespace CafeDemo.Formlar
             if (result == DialogResult.Yes)
                 AyarlarContext.Urunler.Remove(_seciliUrun);
             UrunDoldur();
+            UrunTemizle();
         }
         private void KategoriDoldur()
         {
-            foreach (Kategori kategori in AyarlarContext.Kategoriler)
+            foreach (Kategori kategori in AyarlarContext.dataS.Load())
             {
                 cmbKategorisi.Items.Add(kategori.Adi);
             }
@@ -164,6 +166,7 @@ namespace CafeDemo.Formlar
             }
             AyarlarContext.Kategoriler.Add(yeniKategori);
             KategoriDoldur();
+            KategoriTemizle();
         }
 
         private void btnKategoriSil_Click(object sender, EventArgs e)
@@ -172,6 +175,7 @@ namespace CafeDemo.Formlar
             if (result == DialogResult.Yes)
                 AyarlarContext.Kategoriler.Remove(_seciliKategori);
             KategoriDoldur();
+            KategoriTemizle();
 
         }
 
@@ -197,6 +201,7 @@ namespace CafeDemo.Formlar
             }
 
             KategoriDoldur();
+            KategoriTemizle();
 
         }
         private Kategori _seciliKategori;
@@ -218,21 +223,21 @@ namespace CafeDemo.Formlar
 
         private void btnKaydetIletisim_Click(object sender, EventArgs e)
         {
-            RestoranIletisim restoranIletisim = new RestoranIletisim();
+            RestoranBilgi restoranIletisim = new RestoranBilgi();
             restoranIletisim.SirketAdi = txtRestoranAdi.Text;
             restoranIletisim.Telefon = txtTelefon.Text;
             restoranIletisim.Adres = txtAdres.Text;
         }
-        KatDuzen _seciliRestoranDuzeni;
+        RestoranDuzen _seciliRestoranDuzeni;
         
         private void btnBolumEkle_Click(object sender, EventArgs e)
-        {
+        { int masasayi = Convert.ToInt32(restoranBolum1.MasaSayisi);
             string bolumAdi = restoranBolum1.BolumAdi.Trim();
-            KatDuzen yeniKatDuzen = new KatDuzen()
+            RestoranDuzen yeniKatDuzen = new RestoranDuzen()
             {
                 Adi = bolumAdi,
                 Durum = restoranBolum1.Durum,
-                MasaSayisi =Convert.ToInt32(restoranBolum1.MasaSayisi)
+                MasaSayisi = masasayi
             };
             AyarlarContext.Katlar.Add(yeniKatDuzen);
             KatDuzenDoldur();
@@ -243,7 +248,7 @@ namespace CafeDemo.Formlar
         {
 
             if (lstBolumler.SelectedItem == null) return;
-            _seciliRestoranDuzeni = lstBolumler.SelectedItem as KatDuzen;
+            _seciliRestoranDuzeni = lstBolumler.SelectedItem as RestoranDuzen;
             restoranBolum1.BolumAdi = _seciliRestoranDuzeni.Adi;
             restoranBolum1.MasaSayisi =_seciliRestoranDuzeni.MasaSayisi.ToString();
             restoranBolum1.Durum = _seciliRestoranDuzeni.Durum;
@@ -251,7 +256,7 @@ namespace CafeDemo.Formlar
         private void KatDuzenDoldur()
         {
             lstBolumler.Items.Clear();
-            foreach (KatDuzen kat in AyarlarContext.Katlar)
+            foreach (RestoranDuzen kat in AyarlarContext.Katlar)
             {
                 lstBolumler.Items.Add(kat.ToString());
             }
@@ -262,6 +267,23 @@ namespace CafeDemo.Formlar
             restoranBolum1.BolumAdi = string.Empty;
             restoranBolum1.Durum = false;
             restoranBolum1.MasaSayisi = string.Empty;
+
+        }
+        private void UrunTemizle()
+        {
+            txtUrunAdi.Text = string.Empty;
+            cmbKategorisi.SelectedIndex = -1;
+            cbUrunAktifMi.Checked = false;
+            pbUrun.Image = null;
+            nudFiyat.Value = 0;
+
+        }
+        private void KategoriTemizle()
+        {
+            txtKategoriAdi.Text = string.Empty;
+
+            cbKategoriAktifMi.Checked = false;
+            pbUrun.Image = null;            
 
         }
     }

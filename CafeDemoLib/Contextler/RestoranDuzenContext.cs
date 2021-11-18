@@ -8,16 +8,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CafeDemoLib.Models
+namespace CafeDemoLib.Contextler
 {
-    public class AyarlarContext
+    public class RestoranDuzenContext
     {
         private static string _path =
-            Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "/CafeDemo/db.json";
-
-        public static List<DataSet> Datalar { get; set; } = new List<DataSet>();
-       
-
+                 Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "/CafeDemo/db.json";
+        public static List<RestoranDuzen> Bolumler { get; set; } = new List<RestoranDuzen>();
         public static void Load()
         {
             if (File.Exists(_path))
@@ -29,7 +26,7 @@ namespace CafeDemoLib.Models
                     string dosyaIcerigi = reader.ReadToEnd();
                     reader.Close();
                     reader.Dispose();
-                    Datalar = JsonConvert.DeserializeObject<List<DataSet>>(dosyaIcerigi);
+                    Bolumler = JsonConvert.DeserializeObject<List<RestoranDuzen>>(dosyaIcerigi);
                 }
                 catch (Exception ex)
                 {
@@ -47,7 +44,7 @@ namespace CafeDemoLib.Models
             {
                 FileStream fileStream = new FileStream(_path, FileMode.OpenOrCreate);
                 StreamWriter writer = new StreamWriter(fileStream);
-                writer.Write(JsonConvert.SerializeObject(Datalar, Formatting.Indented));
+                writer.Write(JsonConvert.SerializeObject(Bolumler, Formatting.Indented));
                 writer.Close();
                 writer.Dispose();
             }
@@ -56,6 +53,5 @@ namespace CafeDemoLib.Models
                 Debug.WriteLine(ex);
             }
         }
-
     }
 }

@@ -39,28 +39,28 @@ namespace CafeOtomasyonuApp.Formlar
         };
 
 
-        private List<UrunAyar> _urunler = new List<UrunAyar>();
-        UrunAyar urun1 = new UrunAyar()
+        private List<Urun> _urunler = new List<Urun>();
+        Urun urun1 = new Urun()
         {
             Kategori = "Çorbalar",
             UrunAdi = "Mercimek Çorbası",
             BirimFiyat = 5
 
         };
-        UrunAyar urun2 = new UrunAyar()
+        Urun urun2 = new Urun()
         {
             Kategori = "Çorbalar",
             UrunAdi = "Tavuk Çorbası",
             BirimFiyat = 10
 
         };
-        UrunAyar urun3 = new UrunAyar()
+        Urun urun3 = new Urun()
         {
             Kategori = "İçecekler",
             UrunAdi = "Kola",
             BirimFiyat = 2
         };
-        UrunAyar urun4 = new UrunAyar()
+        Urun urun4 = new Urun()
         {
 
             Kategori = "İçecekler",
@@ -71,6 +71,7 @@ namespace CafeOtomasyonuApp.Formlar
 
         private void FrmSiparis_Load(object sender, EventArgs e)
         {
+            
             // kategori olusturma
             Kategoriler.Add(kategori1);
             Kategoriler.Add(kategori2);
@@ -94,7 +95,7 @@ namespace CafeOtomasyonuApp.Formlar
                 btnKategori.Text = Kategoriler[i].Adi;
                 btnKategori.Size = new Size(kategoriPanelWidth, kategoriPanelHeight);
                 flwLytPnlKategori.Controls.Add(btnKategori);
-                //btnKategori.Click += BtnKategori_Click; // siparis adeti girme
+                btnKategori.Click += BtnKategori_Click; // siparis adeti girme
             }
 
         }
@@ -136,8 +137,7 @@ namespace CafeOtomasyonuApp.Formlar
             //btnEklenenUrun.BirimFiyat = secilenYemek.BirimFiyat;
 
             //toplamTutar += btnEklenenUrun.Tutar;
-
-
+            
             for (int i = 0; i < _urunler.Count; i++)
             {
                 if (secilenYemek.Text != _urunler[i].UrunAdi)
@@ -145,7 +145,7 @@ namespace CafeOtomasyonuApp.Formlar
                 BtnEklenenUrun btnYeniUrun = new BtnEklenenUrun();
                 btnYeniUrun.Size = new Size(flwLytYemekEklemeEkrani.Width - 30, 45);
                 flwLytYemekEklemeEkrani.Controls.Add(btnYeniUrun);
-                btnYeniUrun.txtSiparisIsmi.Text = _urunler[i].UrunAd;
+                btnYeniUrun.txtSiparisIsmi.Text = _urunler[i].UrunAdi;
                 btnYeniUrun.BirimFiyat = _urunler[i].BirimFiyat;
                 btnYeniUrun.txtUrunToplamTutar.Text = (_urunler[i].BirimFiyat * btnYeniUrun.Adet).ToString();
 

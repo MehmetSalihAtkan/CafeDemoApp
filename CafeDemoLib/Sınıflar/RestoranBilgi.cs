@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace CafeDemoLib.Sınıflar
 {
-    public class RestoranIletisim
+    public class RestoranBilgi
     {
-        public RestoranIletisim()
+        public RestoranBilgi()
         {
             SirketId= Guid.NewGuid().ToString();
         }
@@ -16,6 +16,6 @@ namespace CafeDemoLib.Sınıflar
         public string Telefon { get; set; }
         public string Adres { get; set; }
         public string SirketId { get; set; }
-        public  List<KatDuzen> Katlar { get; set; } = new List<KatDuzen>();
+        public  List<RestoranDuzen> Katlar { get; set; } = new List<RestoranDuzen>();
     }
 }
